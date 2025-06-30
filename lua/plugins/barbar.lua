@@ -1,5 +1,4 @@
 return {
-
     "romgrk/barbar.nvim",
     event = { "VeryLazy" },
     config = function()

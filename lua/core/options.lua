@@ -1,5 +1,5 @@
 -- Set leader to space
-vim.g.maplocalleadeer = " "
+vim.g.maplocalleader = " "
 vim.g.mapleader = " "
 
 -- Line numbers / relative
@@ -8,6 +8,9 @@ vim.opt.relativenumber = true
 
 -- Disable mouse
 vim.opt.mouse = ""
+
+-- Clipboard
+vim.opt.clipboard = "unnamedplus"
 
 -- Tab widths, indents and spaces
 vim.opt.tabstop = 4
@@ -19,9 +22,6 @@ vim.opt.autoindent = true
 
 -- Don't line wrap
 vim.opt.wrap = false
-
---clipboard
-vim.opt.clipboard = "unnamedplus"
 
 -- Search
 vim.opt.ignorecase = true

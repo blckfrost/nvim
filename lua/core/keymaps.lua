@@ -1,4 +1,4 @@
-local keymap = vim.keymap -- for conciseness
+local keymap = vim.keymap
 local opts = { silent = true }
 
 -- Disable the arrow keys - dont use anymore lol
