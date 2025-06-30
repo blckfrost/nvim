@@ -8,6 +8,9 @@ local function on_attach(client, bufnr)
     local keymap = vim.keymap
     local opts = { noremap = true, silent = true, buffer = bufnr }
 
+    opts.desc = "Lsp Install"
+    keymap.set("n", "<leader>li", "<cmd>LspInstall<cr>", opts)
+
     opts.desc = "Show buffer diagnostics"
     keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
@@ -15,7 +18,9 @@ local function on_attach(client, bufnr)
     keymap.set("n", "<leader>lR", "<cmd>Telescope lsp_references<CR>", opts)
 
     opts.desc = "Show available code actions"
-    keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+    keymap.set({ "n", "v" }, "<leader>ca", function()
+        require("tiny-code-action")
+    end, opts)
 
     opts.desc = "Show lsp definitions"
     keymap.set("n", "<leader>lD", "<cmd>Lspsaga goto_definition <cr>", opts)

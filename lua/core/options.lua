@@ -74,14 +74,19 @@ vim.opt.visualbell = false
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
--- Whitespace chars
-vim.opt.listchars = { tab = "» ", trail = "~", space = "·", eol = "↵" }
-vim.opt.fillchars = { eob = " " } -- Use space instead of ~
+-- Whitespace  | UI characters
+vim.opt.listchars = { tab = "  ↦", trail = "⋅", space = "·", eol = "↵" }
+vim.opt.fillchars = {
+    eob = " ",
+    fold = " ",
+    foldclose = "",
+    foldopen = "",
+}
 
 vim.opt.whichwrap = "<,>,h,l,[,]"
 
 -- faster completion
-vim.o.updatetime = 100
+vim.o.updatetime = 200
 
 -- turn of swapfile
 vim.opt.swapfile = false

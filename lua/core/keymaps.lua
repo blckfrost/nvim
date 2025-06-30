@@ -41,9 +41,6 @@ keymap.set("n", "<Esc>", "<cmd>noh<CR>")
 keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { desc = "Open Lazy UI" })
 keymap.set("n", "<leader>M", "<cmd>Mason<CR>", { desc = "Open Mason UI" })
 
--- Render markdown using Markdown preview
-keymap.set("n", "<leader>map", "<cmd>MarkdownPreview<CR>", { desc = "[M][a]rkdown [P]review" })
-
 -- Toggle relative number
 keymap.set("n", "<leader>rn", function()
     vim.o.relativenumber = not vim.o.relativenumber

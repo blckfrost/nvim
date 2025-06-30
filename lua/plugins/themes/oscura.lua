@@ -1,3 +1,0 @@
-return {
-    "jwbaldwin/oscura.nvim",
-}

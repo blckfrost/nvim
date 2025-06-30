@@ -1,28 +1,20 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "VeryLazy" },
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-        {
-            "nvim-treesitter/nvim-treesitter-context",
-            opts = {},
-            enabled = false,
-            config = function()
-                vim.keymap.set(
-                    "n",
-                    "<leader>oc",
-                    "<cmd>TSContextToggle<cr>",
-                    { desc = "Treesitter | Toggle Context", silent = true }
-                )
-            end,
-        },
+        "nvim-treesitter/nvim-treesitter-textobjects",
     },
 
     config = function()
-        local treesitter = require("nvim-treesitter.configs")
-
-        treesitter.setup({
-            -- ensure these language parsers are installed
+        require("nvim-treesitter.configs").setup({
+            sync_install = false,
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = false,
+            },
+            auto_install = true,
+            indent = { enable = true },
             ensure_installed = {
                 "c",
                 "cpp",
@@ -51,10 +43,6 @@ return {
                 "gosum",
                 "gowork",
             },
-            sync_install = true,
-            auto_install = true,
-            highlight = { enable = true },
-            indent = { enable = true },
             incremental_selection = {
                 enable = true,
                 keymaps = {

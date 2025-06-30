@@ -39,7 +39,7 @@ return {
         lualine.setup({
             options = {
                 icons_enabled = true,
-                globalstatus = vim.o.laststatus == 2,
+                globalstatus = vim.o.laststatus == 3,
                 theme = "auto",
                 component_separators = "",
                 section_separators = "",
