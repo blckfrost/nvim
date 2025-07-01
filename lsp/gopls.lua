@@ -1,6 +1,7 @@
 return {
     cmd = { "gopls" },
-    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl", "gosum" },
+    root_markers = { "go.mod", "go.work", ".git" },
     settings = {
         gopls = {
             completeUnimported = true,
@@ -12,6 +13,7 @@ return {
                 useany = true,
                 nilness = true,
                 unusedwrite = true,
+                simplifyrange = true,
             },
             hints = {
                 assignVariableTypes = true,
