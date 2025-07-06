@@ -21,8 +21,8 @@ return {
         },
         notification = {
             window = {
-                relative = "editor", -- where to anchor, either "win" or "editor"
-                winblend = 0, -- &winblend for the window
+                relative = "win", -- where to anchor, either "win" or "editor"
+                winblend = 0, -- winblend for the window
                 border = "none",
             },
         },

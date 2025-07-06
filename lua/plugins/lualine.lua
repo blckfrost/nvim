@@ -39,7 +39,7 @@ return {
         lualine.setup({
             options = {
                 icons_enabled = true,
-                globalstatus = vim.o.laststatus == 3,
+                globalstatus = vim.o.laststatus == 2,
                 theme = "auto",
                 component_separators = "",
                 section_separators = "",
@@ -141,7 +141,22 @@ return {
                     { "progress", padding = 1 },
                 },
                 lualine_z = {
-                    { "location", padding = 1 },
+                    -- { "location", padding = 1 },
+                    {
+                        function()
+                            local bufnr = vim.api.nvim_get_current_buf()
+                            local clients = vim.lsp.get_clients({ bufnr = bufnr })
+                            if next(clients) == nil then
+                                return ""
+                            end
+                            local client_names = {}
+                            for _, client in pairs(clients) do
+                                table.insert(client_names, client.name)
+                            end
+                            return table.concat(client_names, ", ")
+                        end,
+                        icon = " LSP:",
+                    },
                 },
             },
             inactive_sections = {

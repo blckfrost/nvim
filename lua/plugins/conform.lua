@@ -7,7 +7,7 @@ return {
         conform.setup({
             formatters_by_ft = {
                 lua = { "stylua" },
-                python = { "isort", "black" },
+                -- python = { "isort", "black" },
                 javascript = { "prettier" },
                 javascriptreact = { "prettier" },
                 typescriptreact = { "prettier" },
@@ -20,7 +20,7 @@ return {
                 jsonc = { "prettier" },
                 sh = { "beautysh" },
                 bash = { "beautysh" },
-                c = { "clang-format" },
+                -- c = { "clang-format" },
                 go = { "goimports", "gofmt" },
                 yaml = { "yamlfmt" },
             },

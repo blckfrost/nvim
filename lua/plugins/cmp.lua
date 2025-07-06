@@ -41,6 +41,12 @@ return {
                 end,
             },
 
+            view = {
+                docs = {
+                    auto_open = true,
+                },
+            },
+
             mapping = cmp.mapping.preset.insert({
                 -- Scroll up and down the completion docs window
                 ["<C-u>"] = cmp.mapping.scroll_docs(-4),
@@ -63,19 +69,36 @@ return {
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = true,
                 }),
+
+                ["<C-g>"] = function()
+                    if cmp.visible_docs() then
+                        cmp.close_docs()
+                    else
+                        cmp.open_docs()
+                    end
+                end,
             }),
 
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
+                { name = "nvim_lsp_signature_help" },
                 { name = "nvim_lua" },
+            }, {
                 { name = "buffer" },
                 { name = "path" },
+                { name = "npm" },
                 { name = "html-css" },
             }),
 
+            experimental = {
+                native_menu = false,
+                ghost_text = true,
+            },
+
             formatting = {
                 expandable_indicator = true,
+                fields = { "abbr", "kind", "menu" },
                 format = lspkind.cmp_format({
                     mode = "symbol_text",
                     maxwidth = 50,
@@ -85,6 +108,17 @@ return {
                         cmp_tailwind.formatter(entry, vim_item)
                         return vim_item
                     end,
+                    -- before = require("tailwind-tools.cmp").lspkind_format,
+                    --
+                    -- menu = {
+                    --     buffer = "[Buffer]",
+                    --     nvim_lsp = "[LSP]",
+                    --     luasnip = "[LuaSnip]",
+                    --     nvim_lua = "[Lua]",
+                    --     path = "[Path]",
+                    --     latex_symbols = "[Latex]",
+                    --     copilot = "[Copilot]",
+                    -- },
                 }),
             },
         })

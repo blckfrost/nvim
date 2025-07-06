@@ -16,6 +16,8 @@ return {
             defaults = {
                 layout_strategy = "vertical",
                 color_devicons = true,
+                prompt_prefix = "   ",
+                selection_caret = " ",
                 file_ignore_patterns = {
                     "%git/",
                     "node_modules",
@@ -60,6 +62,7 @@ return {
         require("telescope").load_extension("fzf")
         require("telescope").load_extension("ui-select")
 
+        -- [Keymaps]
         keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" }) --find files
         keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Show old files" }) --olf files
         keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
