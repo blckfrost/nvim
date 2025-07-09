@@ -8,7 +8,9 @@ return {
         "javascriptreact",
         "typescript",
         "typescriptreact",
+        "mdx",
         "svelte",
+        "vue",
     },
     root_markers = {
         "package.json",
@@ -42,10 +44,6 @@ return {
                 "ngClass",
             },
             includeLanguages = {
-                eelixir = "html-eex",
-                elixir = "phoenix-heex",
-                eruby = "erb",
-                heex = "phoenix-heex",
                 htmlangular = "html",
                 templ = "html",
             },

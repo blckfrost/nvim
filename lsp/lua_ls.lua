@@ -6,7 +6,12 @@ return {
             diagnostics = {
                 globals = { "vim" },
             },
-            hint = { enabled = true },
+            hint = {
+                enable = true,
+                setType = true,
+                paramType = true,
+                paramName = "All", -- All | Literal | Disable
+            },
             completion = {
                 callSnippet = "Replace",
             },
