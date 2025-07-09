@@ -141,22 +141,23 @@ return {
                     { "progress", padding = 1 },
                 },
                 lualine_z = {
-                    -- { "location", padding = 1 },
-                    {
-                        function()
-                            local bufnr = vim.api.nvim_get_current_buf()
-                            local clients = vim.lsp.get_clients({ bufnr = bufnr })
-                            if next(clients) == nil then
-                                return ""
-                            end
-                            local client_names = {}
-                            for _, client in pairs(clients) do
-                                table.insert(client_names, client.name)
-                            end
-                            return table.concat(client_names, ", ")
-                        end,
-                        icon = " LSP:",
-                    },
+                    { "location", padding = 1 },
+                    -- {
+                    --     function()
+                    --         local bufnr = vim.api.nvim_get_current_buf()
+                    --         local clients = vim.lsp.get_clients({ bufnr = bufnr })
+                    --         if next(clients) == nil then
+                    --             return ""
+                    --         end
+                    --         local client_names = {}
+                    --         for _, client in pairs(clients) do
+                    --             table.insert(client_names, client.name)
+                    --         end
+                    --         return table.concat(client_names, ", ")
+                    --     end,
+                    --     icon = " LSP:",
+                    --     color = {  gui = "bold", bg = "none" },
+                    -- },
                 },
             },
             inactive_sections = {

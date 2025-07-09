@@ -9,5 +9,5 @@
     "hint.arrayIndex": "Disable",
     "diagnostics.disable": ["missing-fields"],
     "telemetry.enable": false,
-    "diagnostics.globals": ["hooks", "vim"]
+    "diagnostics.globals": ["hooks", "vim"],
 }

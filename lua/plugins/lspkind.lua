@@ -1,5 +1,5 @@
 return {
-    "onsails/lspkind-nvim", -- vscode like pictograms
+    "onsails/lspkind-nvim",
     event = "InsertEnter",
     config = function()
         local lspkind = require("lspkind")

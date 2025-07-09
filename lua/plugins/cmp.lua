@@ -11,6 +11,7 @@ return {
         "rafamadriz/friendly-snippets",
         "Jezda1337/nvim-html-css",
         "saadparwaiz1/cmp_luasnip",
+        "onsails/lspkind.nvim",
         { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
     config = function()
@@ -39,12 +40,6 @@ return {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
                 end,
-            },
-
-            view = {
-                docs = {
-                    auto_open = true,
-                },
             },
 
             mapping = cmp.mapping.preset.insert({
@@ -87,7 +82,6 @@ return {
             }, {
                 { name = "buffer" },
                 { name = "path" },
-                { name = "npm" },
                 { name = "html-css" },
             }),
 

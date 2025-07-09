@@ -81,6 +81,8 @@ vim.opt.fillchars = {
     fold = " ",
     foldclose = "",
     foldopen = "",
+    foldsep = " ",
+    msgsep = "─",
 }
 
 vim.opt.whichwrap = "<,>,h,l,[,]"
@@ -95,9 +97,9 @@ vim.opt.swapfile = false
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
--- g.python3_host_prog = "/usr/bin/python3"
-
 -- complete the longest common match, tab the results to fully complete them
 vim.opt.wildmode = "longest:full,full"
 
 vim.opt.spelllang = { "en" }
+
+-- g.python3_host_prog = "/usr/bin/python3"
