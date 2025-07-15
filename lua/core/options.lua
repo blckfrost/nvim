@@ -79,8 +79,8 @@ vim.opt.listchars = { tab = "  ↦", trail = "⋅", space = "·", eol = "↵" }
 vim.opt.fillchars = {
     eob = " ",
     fold = " ",
-    foldclose = "",
-    foldopen = "",
+    foldclose = "",
+    foldopen = "",
     foldsep = " ",
     msgsep = "─",
 }
@@ -99,6 +99,7 @@ vim.opt.fileencoding = "utf-8"
 
 -- complete the longest common match, tab the results to fully complete them
 vim.opt.wildmode = "longest:full,full"
+vim.opt.wildmenu = true
 
 vim.opt.spelllang = { "en" }
 

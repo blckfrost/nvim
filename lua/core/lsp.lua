@@ -152,10 +152,8 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
     end,
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 vim.lsp.config("*", {
-    capabilities = capabilities,
+    capabilities = require("blink.cmp").get_lsp_capabilities(nil, true),
 })
 
 return M
