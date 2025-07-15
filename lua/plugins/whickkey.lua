@@ -19,6 +19,7 @@ return {
                 { "<leader>c", group = "code" },
                 { "<leader>f", group = "file/find" },
                 { "<leader>l", group = "LSP", icon = "" },
+                { "<leader>R", group = "+Rest" },
             },
         })
     end,

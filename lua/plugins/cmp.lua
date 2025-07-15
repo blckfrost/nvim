@@ -1,12 +1,14 @@
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
+    enabled = false,
     dependencies = {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp-signature-help",
+        "hrsh7th/cmp-emoji",
         "L3MON4D3/LuaSnip",
         "rafamadriz/friendly-snippets",
         "Jezda1337/nvim-html-css",
@@ -83,6 +85,7 @@ return {
                 { name = "buffer" },
                 { name = "path" },
                 { name = "html-css" },
+                { name = "emoji" },
             }),
 
             experimental = {

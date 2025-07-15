@@ -1,22 +1,28 @@
 return {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
-    enabled = false,
+    enabled = true,
     config = function()
-        local notify = require("notify")
-        notify.setup({
-            background_colour = "#000000",
+        require("notify").setup({
+            background_colour = "NormalFloat",
             fps = 30,
-            icons = {
-                DEBUG = "",
-                ERROR = "",
-                INFO = "",
-                TRACE = "✎",
-                WARN = "",
-            },
-            timeout = 200,
-            stages = "fade_in_slide_out",
         })
-        vim.notify = notify
     end,
+    -- config = function()
+    --     local notify = require("notify")
+    --     notify.setup({
+    --         background_colour = "#000000",
+    --         fps = 30,
+    --         icons = {
+    --             DEBUG = "",
+    --             ERROR = "",
+    --             INFO = "",
+    --             TRACE = "✎",
+    --             WARN = "",
+    --         },
+    --         timeout = 200,
+    --         stages = "fade_in_slide_out",
+    --     })
+    --     vim.notify = notify
+    -- end,
 }
