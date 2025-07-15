@@ -8,12 +8,17 @@ return {
             },
             hint = {
                 enable = true,
-                setType = true,
+                setType = false,
                 paramType = true,
-                paramName = "All", -- All | Literal | Disable
+                paramName = "Disable", -- All | Literal | Disable
+                semicolon = "Disable",
+                arrayIndex = "Disable",
             },
             completion = {
                 callSnippet = "Replace",
+            },
+            codeLens = {
+                enable = true,
             },
         },
     },
