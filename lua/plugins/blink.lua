@@ -1,9 +1,12 @@
 return {
     "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets", "moyiz/blink-emoji.nvim" },
-    event = "InsertEnter",
-
     version = "*",
+    dependencies = {
+        "rafamadriz/friendly-snippets",
+        "moyiz/blink-emoji.nvim",
+        "L3MON4D3/LuaSnip",
+    },
+    event = { "InsertEnter", "LspAttach" },
 
     opts = {
         keymap = {
@@ -13,6 +16,7 @@ return {
             ["<S-Tab>"] = { "select_prev", "fallback" },
             ["<C-u>"] = { "scroll_documentation_up", "fallback" },
             ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+            ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
         },
 
         appearance = {
@@ -21,16 +25,40 @@ return {
         },
 
         completion = {
+            accept = {
+                auto_brackets = { enabled = true },
+            },
             documentation = {
                 auto_show = true,
-                window = { border = "single" },
+                auto_show_delay_ms = 0,
+                window = {
+                    border = "single",
+                    min_width = 20,
+                    max_width = 75,
+                    max_height = 15,
+                },
             },
-            menu = { border = "single" },
+            menu = {
+                draw = {
+                    treesitter = { "lsp" },
+                    columns = {
+                        { "label", "label_description", gap = 1 },
+                        { "kind_icon", "kind" },
+                        -- { "source_name" },
+                    },
+                },
+                border = "single",
+            },
+            ghost_text = { enabled = true },
         },
 
         signature = {
             enabled = true,
             window = { border = "single" },
+        },
+
+        snippets = {
+            preset = "luasnip",
         },
 
         sources = {
@@ -39,10 +67,8 @@ return {
                 emoji = {
                     module = "blink-emoji",
                     name = "Emoji",
-                    score_offset = 15, -- Tune by preference
                     opts = {
-                        insert = true, -- Insert emoji (default) or complete its name
-                        ---@type string|table|fun():table
+                        insert = true,
                         trigger = function()
                             return { ":" }
                         end,

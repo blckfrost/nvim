@@ -1,4 +1,3 @@
-local M = {}
 local methods = vim.lsp.protocol.Methods
 
 --- LSP attach setup
@@ -155,5 +154,3 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 vim.lsp.config("*", {
     capabilities = require("blink.cmp").get_lsp_capabilities(nil, true),
 })
-
-return M

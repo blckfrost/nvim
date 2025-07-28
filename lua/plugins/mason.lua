@@ -29,6 +29,10 @@ return {
                     "tailwindcss",
                     "gopls",
                     "bashls",
+                    "dockerls",
+                    "jsonls",
+                    "yamlls",
+                    "html",
                 },
             })
             mason_tool_installer.setup({

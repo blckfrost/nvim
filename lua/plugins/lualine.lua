@@ -95,7 +95,7 @@ return {
                             hint = " ",
                         },
                     },
-                    "%=",
+                    -- "%=",
                     {
 
                         "filename",
@@ -141,7 +141,8 @@ return {
                     { "progress", padding = 1 },
                 },
                 lualine_z = {
-                    { "location", padding = 1 },
+                    { "location" },
+
                     -- {
                     --     function()
                     --         local bufnr = vim.api.nvim_get_current_buf()
