@@ -4,6 +4,30 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        {
+            "nvim-treesitter/nvim-treesitter-context",
+            opts = {
+                min_window_height = 20,
+                max_lines = 3,
+            },
+            keys = {
+                {
+                    "[c",
+                    function()
+                        if vim.wo.diff then
+                            return "[c"
+                        else
+                            vim.schedule(function()
+                                require("treesitter-context").go_to_context()
+                            end)
+                            return "<Ignore>"
+                        end
+                    end,
+                    desc = "Jump to upper context",
+                    expr = true,
+                },
+            },
+        },
     },
 
     config = function()
@@ -36,7 +60,6 @@ return {
                 "tsx",
                 "regex",
                 "gitignore",
-                "dart",
                 "go",
                 "sql",
                 "gomod",

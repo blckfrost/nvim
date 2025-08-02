@@ -14,7 +14,7 @@ return {
         local action_layout = require("telescope.actions.layout")
         require("telescope").setup({
             defaults = {
-                layout_strategy = "vertical",
+                layout_strategy = "horizontal",
                 color_devicons = true,
                 prompt_prefix = "   ",
                 selection_caret = " ",

@@ -33,6 +33,7 @@ return {
                     "jsonls",
                     "yamlls",
                     "html",
+                    "postgres_lsp",
                 },
             })
             mason_tool_installer.setup({
