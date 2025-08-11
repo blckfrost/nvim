@@ -13,12 +13,10 @@ return {
         whichkey.add({
             {
                 mode = { "n", "v" },
-                { "<leader>g", group = "git" },
-                { "<leader>gd", group = "diffview" },
-                { "<leader>t", group = "toggle" },
-                { "<leader>c", group = "code" },
+                { "<leader>g", group = "[G]it" },
+                { "<leader>t", group = "[T]oggle" },
+                { "<leader>l", group = "[L]SP" },
                 { "<leader>f", group = "file/find" },
-                { "<leader>l", group = "LSP", icon = "" },
                 { "<leader>R", group = "+Rest" },
             },
         })

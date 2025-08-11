@@ -1,6 +1,6 @@
 return {
     "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre" },
     config = function()
         local gitsigns = require("gitsigns")
         gitsigns.setup({
@@ -60,7 +60,7 @@ return {
         vim.keymap.set("n", "<leader>gx", gitsigns.diffthis, opts)
 
         opts.desc = "Stage Hunk"
-        vim.keymap.set("n", "<leader>gt", gitsigns.stage_hunk, opts)
+        vim.keymap.set("n", "<leader>gS", gitsigns.stage_hunk, opts)
 
         opts.desc = "Blame Line"
         vim.keymap.set("n", "<leader>gb", gitsigns.blame_line, opts)

@@ -1,10 +1,9 @@
 return {
     "stevearc/conform.nvim",
     config = function()
-        local conform = require("conform")
         local keymap = vim.keymap
 
-        conform.setup({
+        require("conform").setup({
             formatters_by_ft = {
                 lua = { "stylua" },
                 -- python = { "isort", "black" },
@@ -31,7 +30,7 @@ return {
                 timeout_ms = 2500,
             },
             keymap.set({ "n", "v" }, "<leader>mp", function()
-                conform.format({
+                require("conform").format({
                     lsp_fallback = true,
                     async = false,
                     timeout_ms = 1000,

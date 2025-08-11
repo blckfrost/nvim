@@ -2,11 +2,9 @@ return {
     "saghen/blink.cmp",
     version = "*",
     dependencies = {
-        "rafamadriz/friendly-snippets",
-        "moyiz/blink-emoji.nvim",
         "L3MON4D3/LuaSnip",
     },
-    event = { "InsertEnter", "LspAttach" },
+    event = { "LspAttach" },
 
     opts = {
         keymap = {
@@ -62,20 +60,13 @@ return {
         },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "emoji" },
+            default = { "lsp", "path", "snippets", "buffer", "dadbod", "lazydev" },
             providers = {
-                emoji = {
-                    module = "blink-emoji",
-                    name = "Emoji",
-                    opts = {
-                        insert = true,
-                        trigger = function()
-                            return { ":" }
-                        end,
-                    },
-                    should_show_items = function()
-                        return vim.tbl_contains({ "gitcommit", "markdown" }, vim.o.filetype)
-                    end,
+                dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+                lazydev = {
+                    name = "LazyDev",
+                    module = "lazydev.integrations.blink",
+                    score_offset = 100,
                 },
             },
         },

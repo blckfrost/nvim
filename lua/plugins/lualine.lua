@@ -1,6 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     config = function()
+        vim.cmd(":hi statusline guibg=NONE")
         local colors = {
             bg = "NONE",
             fg = "#DCD7BA",
@@ -73,6 +74,10 @@ return {
                     normal = { c = { fg = colors.fg, bg = colors.bg } },
                     inactive = { c = { fg = colors.fg, bg = colors.bg } },
                 },
+                disabled_filetypes = {
+                    statusline = { "NvimTree", "alpha", "dashboard", "Outline" }, -- disable lualine for nvim-tree buffer
+                    winbar = { "NvimTree" },
+                },
             },
             sections = {
                 lualine_a = {},
@@ -123,6 +128,7 @@ return {
             function()
                 return "▊"
             end,
+            color = { fg = "#000000" },
             padding = { left = 0, right = 1 },
         })
 
@@ -131,7 +137,7 @@ return {
             fmt = function(s)
                 return mode_map[s]
             end,
-            gui = "bold",
+            color = { gui = "bold" },
         })
 
         ins_left({
@@ -180,7 +186,7 @@ return {
         ins_right({
             show_lsp,
             icon = " LSP:",
-            color = { gui = "bold" },
+            -- color = { gui = "bold" },
         })
 
         ins_right({ "filetype" })
@@ -189,6 +195,7 @@ return {
             function()
                 return "▊"
             end,
+            color = { fg = "#000000" },
             padding = { left = 1 },
         })
 

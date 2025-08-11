@@ -10,6 +10,6 @@ return {
                 string = "#8a739a",
             },
         })
-        -- vim.cmd.colorscheme("vague")
+        vim.cmd.colorscheme("vague")
     end,
 }
