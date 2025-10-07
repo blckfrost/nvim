@@ -1,20 +1,20 @@
 local keymap = vim.keymap
 local opts = { silent = true }
 
--- Disable the arrow keys - dont use anymore lol
+-- Disable the arrow keys
 -- keymap.set("n", "<Left>", ":echo 'use h'<CR>")
 -- keymap.set("n", "<Right>", ":echo 'use l'<CR>")
 -- keymap.set("n", "<Up>", ":echo 'use k'<CR>")
 -- keymap.set("n", "<Down>", ":echo 'use j'<CR>")
 
---  Some base stuff: exit and quit
-keymap.set("n", "<leader>ws", "<cmd>w<CR>", { desc = "Save current buffer" })
-keymap.set("n", "<leader>wq", "<cmd>q<CR>", { desc = "[W]indow [Q]uit" })
+-- Exit and quit
+keymap.set("n", "<leader>ws", "<cmd>w<CR>", { desc = "Save current File" })
+keymap.set("n", "<C-q>", "<cmd>q<CR>", { desc = "[Q]uit" })
 
 -- Split window
-keymap.set("n", "<leader>we", "<C-w>=", { desc = "[W]indow [E]qual" })
-keymap.set("n", "<leader>wv", ":vsplit<Return><C-w>w", { desc = "[W]indow [V]ertical split" }, opts)
-keymap.set("n", "<leader>wh", ":split<Return>", { desc = "[W]indow [H]orizontal split" }, opts)
+keymap.set("n", "se", "<C-w>=", { desc = "[S]plit [E]qual" })
+keymap.set("n", "sv", ":vsplit<Return><C-w>w", { desc = "[S]plit [V]ertical" }, opts)
+keymap.set("n", "sh", ":split<Return>", { desc = "[S]plit [H]orizontal" }, opts)
 
 -- Move to window
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move window left" })
@@ -28,13 +28,7 @@ keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
-
--- Do not yank when x is pressed
-keymap.set("n", "x", '"_x')
-
---
+-- Reset highlights
 keymap.set("n", "<Esc>", "<cmd>noh<CR>")
 
 --  Lazy UI and Mason UI
@@ -45,3 +39,16 @@ keymap.set("n", "<leader>M", "<cmd>Mason<CR>", { desc = "Open Mason UI" })
 keymap.set("n", "<leader>rn", function()
     vim.o.relativenumber = not vim.o.relativenumber
 end, { desc = "Toggle Relative number" })
+
+-- Run current line as shell command
+keymap.set("n", "Q", "!!zsh<CR>")
+
+-- Move lines up and down
+keymap.set("n", "<A-j>", ":move .+1<CR>==")
+keymap.set("n", "<A-k>", ":move .-2<CR>==")
+keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv")
+keymap.set("v", "<A-j>", ":move '>+1<CR>gv=gv")
+
+-- some line movement
+keymap.set("n", "H", "^")
+keymap.set("n", "L", "$")

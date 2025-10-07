@@ -14,10 +14,12 @@ return {
                 css = true,
                 css_fn = true,
                 -- modes: foreground, background, virtualtext
-                mode = "background",
+                mode = "virtualtext",
                 method = "lsp",
+                tailwind = true,
                 virtualtext = "■",
                 always_update = true,
+                virtualtext_inline = "before",
             },
 
             filetypes = {
@@ -32,8 +34,12 @@ return {
                     css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
                 },
                 html = { mode = "background" },
-                markdown = { names = false },
+                -- markdown = { names = false },
                 "*",
+                -- "!javascript",
+                -- "!javascriptreact",
+                -- "!typescript",
+                -- "!typescriptreact",
             },
         })
     end,

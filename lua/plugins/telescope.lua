@@ -1,6 +1,22 @@
 return {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    tag = "0.1.8",
+    cmd = "Telescope",
+    keys = {
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+        { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Show old files" },
+        { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+        { "<leader><leader>", "<cmd>Telescope buffers<cr>", desc = "Show buffers" },
+        { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fzf Current Buffer" },
+        { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+        { "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "Show builtin man-pages" },
+        { "<leader>fco", "<cmd>Telescope commands<cr>", desc = "Show vim builtin commands" },
+        { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Show Keymaps" },
+        { "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "Show git files" },
+        { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Show git status" },
+        { "<leader>fcs", "<cmd>Telescope colorscheme<cr>", desc = "Show available colorschemes" },
+        { "<leader>fs", "<cmd>Telescope spell_suggest<cr>", desc = "Show Spelling Suggestion" },
+    },
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-ui-select.nvim",
@@ -8,13 +24,10 @@ return {
     },
 
     config = function()
-        local keymap = vim.keymap
-        local builtin = require("telescope.builtin")
         local actions = require("telescope.actions")
         local action_layout = require("telescope.actions.layout")
         require("telescope").setup({
             defaults = {
-                layout_strategy = "horizontal",
                 color_devicons = true,
                 prompt_prefix = "   ",
                 selection_caret = " ",
@@ -31,6 +44,13 @@ return {
                 },
             },
             pickers = {
+                help_tags = {
+                    theme = "ivy",
+                    previewer = false,
+                },
+                live_grep = {
+                    theme = "ivy",
+                },
                 buffers = {
                     sort_lastused = true,
                     previewer = false,
@@ -40,13 +60,6 @@ return {
                             ["<c-d>"] = "delete_buffer",
                         },
                     },
-                },
-                help_tags = {
-                    theme = "ivy",
-                    previewer = false,
-                },
-                live_grep = {
-                    theme = "ivy",
                 },
             },
             extensions = {
@@ -61,34 +74,5 @@ return {
 
         require("telescope").load_extension("fzf")
         require("telescope").load_extension("ui-select")
-
-        -- [Keymaps]
-        keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" }) --find files
-        keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Show old files" }) --olf files
-        keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
-        keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Show buffers" })
-        keymap.set(
-            "n",
-            "<leader>/",
-            builtin.current_buffer_fuzzy_find,
-            { desc = "Fzf Current Buffer" }
-        )
-
-        keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
-        keymap.set("n", "<leader>fm", builtin.man_pages, { desc = "Show builtin man-pages" })
-        keymap.set("n", "<leader>fco", builtin.commands, { desc = "Show vim builtin commands" })
-        keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Show Keymaps" })
-
-        keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Show git files" })
-        keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Show git status" })
-
-        keymap.set(
-            "n",
-            "<leader>fcs",
-            builtin.colorscheme,
-            { desc = "Show available colorschemes" }
-        )
-
-        keymap.set("n", "<leader>fs", builtin.spell_suggest, { desc = "Show Spelling Suggestion" })
     end,
 }

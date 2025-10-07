@@ -4,14 +4,13 @@ return {
     dependencies = {
         "L3MON4D3/LuaSnip",
     },
-    event = { "LspAttach" },
-
+    event = { "InsertEnter" },
     opts = {
         keymap = {
             preset = "default",
             ["<CR>"] = { "accept", "fallback" },
-            ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-            ["<S-Tab>"] = { "select_prev", "fallback" },
+            ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+            ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
             ["<C-u>"] = { "scroll_documentation_up", "fallback" },
             ["<C-d>"] = { "scroll_documentation_down", "fallback" },
             ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
@@ -26,23 +25,27 @@ return {
             accept = {
                 auto_brackets = { enabled = true },
             },
+            list = {
+                selection = { preselect = true, auto_insert = true },
+            },
             documentation = {
                 auto_show = true,
-                auto_show_delay_ms = 0,
+                auto_show_delay_ms = 500,
                 window = {
                     border = "single",
                     min_width = 20,
-                    max_width = 75,
-                    max_height = 15,
+                    max_width = 60,
+                    max_height = 12,
                 },
             },
             menu = {
                 draw = {
                     treesitter = { "lsp" },
                     columns = {
+                        { "kind_icon" },
                         { "label", "label_description", gap = 1 },
-                        { "kind_icon", "kind" },
-                        -- { "source_name" },
+                        { "kind" },
+                        { "source_name" },
                     },
                 },
                 border = "single",
@@ -60,9 +63,9 @@ return {
         },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "dadbod", "lazydev" },
+            default = { "lsp", "path", "snippets", "buffer", "lazydev" },
             providers = {
-                dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+                -- dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
                 lazydev = {
                     name = "LazyDev",
                     module = "lazydev.integrations.blink",

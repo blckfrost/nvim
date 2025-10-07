@@ -1,5 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     config = function()
         vim.cmd(":hi statusline guibg=NONE")
         local colors = {
@@ -44,33 +45,12 @@ return {
             end
         end
 
-        local function show_lsp()
-            local bufnr = vim.api.nvim_get_current_buf()
-            local clients = vim.lsp.get_clients({ bufnr = bufnr })
-
-            if next(clients) == nil then
-                return "No LSP"
-            end
-
-            local client_names = {}
-            for _, client in pairs(clients) do
-                if client.name ~= "null-ls" then
-                    table.insert(client_names, client.name)
-                end
-            end
-
-            return table.concat(client_names, ", ")
-        end
-
         local config = {
             options = {
                 component_separators = "",
                 section_separators = "",
 
                 theme = {
-                    -- We are going to use lualine_c an lualine_x as left and
-                    -- right section. Both are highlighted by c theme .  So we
-                    -- are just setting default looks o statusline
                     normal = { c = { fg = colors.fg, bg = colors.bg } },
                     inactive = { c = { fg = colors.fg, bg = colors.bg } },
                 },
@@ -84,7 +64,6 @@ return {
                 lualine_b = {},
                 lualine_y = {},
                 lualine_z = {},
-                -- These will be filled later
                 lualine_c = {},
                 lualine_x = {},
             },
@@ -154,6 +133,7 @@ return {
         })
 
         ins_left({ "progress" })
+        ins_left({ "location" })
 
         ins_left({
             "diagnostics",
@@ -178,15 +158,13 @@ return {
         })
 
         ins_right({
-
             show_macro_recording,
             color = { fg = "#f38ba8", gui = "bold" },
         })
 
         ins_right({
-            show_lsp,
-            icon = " LSP:",
-            -- color = { gui = "bold" },
+            "lsp_status",
+            -- icon = " LSP:",
         })
 
         ins_right({ "filetype" })

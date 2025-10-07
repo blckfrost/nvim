@@ -1,12 +1,17 @@
--- Set leader to space
-vim.g.maplocalleader = " "
+-- set leader to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- Line numbers / relative
+-- performance optimizations
+vim.opt.updatetime = 300
+vim.opt.timeout = true
+vim.opt.timeoutlen = 300
+
+-- Line numbers (relative)
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Disable mouse
+-- Diable mose
 vim.opt.mouse = ""
 
 -- Clipboard
@@ -26,56 +31,56 @@ vim.opt.wrap = false
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Highlight search matches
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- Better colors
 vim.opt.termguicolors = true
-vim.o.background = "dark"
+vim.opt.background = "dark"
 
 -- Allow hidden unsaved buffers
 vim.opt.hidden = true
 
 -- Attempts to keep cursor in center of screen
-vim.opt.scrolloff = 15
+vim.opt.scrolloff = 10
 
 -- Keep a left hand column for error icons etc.
 vim.opt.signcolumn = "yes"
 
--- Give more space for displaying messages.
+-- Give more space for displaying messages
 vim.opt.cmdheight = 1
 
 -- Persistent undo
 vim.opt.undofile = true
 
--- Improve side scroll
+-- Improve sidescroll
 vim.opt.sidescroll = 1
 
--- cursor line
+-- Cursor line
 vim.opt.cursorline = true
 
--- Preview substitutions live, as you type!
-vim.opt.inccommand = "split"
-
--- Configure how split windows should open
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+-- Split windows
+vim.opt.splitright = true -- splits vertical window to the right
+vim.opt.splitbelow = true -- splits horizontal window to the bottom
 vim.opt.splitkeep = "cursor"
-
--- Netrw
-vim.g.netrw_liststyle = 1
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- Disable error bells
 vim.opt.errorbells = false
 vim.opt.visualbell = false
 
-vim.o.timeout = true
-vim.o.timeoutlen = 300
+-- Whitespace chars
+vim.opt.listchars = {
+    tab = "→ ",
+    eol = "↵",
+    nbsp = "␣",
+    trail = "⋅",
+    extends = "⟩",
+    precedes = "⟨",
+    space = "·",
+}
 
--- Whitespace  | UI characters
-vim.opt.listchars = { tab = "  ↦", trail = "⋅", space = "·", eol = "↵" }
 vim.opt.fillchars = {
     eob = " ",
     fold = " ",
@@ -83,24 +88,20 @@ vim.opt.fillchars = {
     foldopen = "",
     foldsep = " ",
     msgsep = "─",
+    diff = "╱",
 }
-
-vim.opt.whichwrap = "<,>,h,l,[,]"
-
--- faster completion
-vim.o.updatetime = 200
-
--- turn of swapfile
-vim.opt.swapfile = false
 
 -- encoding
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
+-- turn of swapfile
+vim.opt.swapfile = false
+
 -- complete the longest common match, tab the results to fully complete them
 vim.opt.wildmode = "longest:full,full"
 vim.opt.wildmenu = true
 
-vim.opt.spelllang = { "en" }
+-- vim.g.python3_host_prog = "/usr/bin/python"
 
--- g.python3_host_prog = "/usr/bin/python3"
+vim.opt.spelllang = { "en" }

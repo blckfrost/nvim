@@ -1,6 +1,6 @@
 return {
     "Bekaboo/dropbar.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     dependencies = {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",

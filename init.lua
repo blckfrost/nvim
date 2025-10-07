@@ -1,5 +1,6 @@
 require("core.options")
 require("core.autocmds")
-require("core.keymaps")
 require("core.lazy")
-require("core.neovide")
+require("core.keymaps")
+require("core.lsp")
+vim.cmd.colorscheme("frost")
