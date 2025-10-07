@@ -5,6 +5,7 @@ return {
     settings = {
         prisma = {
             prismaFmtBinPath = "",
+            prismaSchemaPath = "prisma/schema.prisma",
         },
     },
 }

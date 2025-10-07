@@ -1,7 +1,20 @@
-vim.lsp.enable({ "lua_ls", "gopls", "ts_ls", "prismals", "tailwindcss" })
+vim.lsp.enable({
+    "lua_ls",
+    "gopls",
+    "prismals",
+    "tailwindcss",
+    "yamlls",
+    "html",
+    "cssls",
+    "vtsls",
+    "copilot",
+    "taplo",
+    "dockerls",
+    "jsonls",
+})
 
 vim.diagnostic.config({
-    update_in_insert = fasle,
+    update_in_insert = false,
     virtual_lines = { current_line = true },
     underline = true,
     severity_sort = true,
@@ -16,6 +29,12 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.INFO] = "󰋼 ",
             [vim.diagnostic.severity.HINT] = " ",
         },
+        numhl = {
+            [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+            [vim.diagnostic.severity.WARN] = "WarningMsg",
+            [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+            [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+        },
     },
 })
 
@@ -26,6 +45,19 @@ end, { desc = "Get all information about attached LSP" })
 vim.api.nvim_create_user_command("LspLogs", function()
     vim.cmd.vsplit(vim.lsp.log.get_filename())
 end, { desc = "Get all the LSP Logs" })
+
+vim.api.nvim_create_user_command("LspRestart", function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local clients = vim.lsp.get_clients({ bufnr })
+
+    for _, client in ipairs(clients) do
+        vim.lsp.stop_client(client.id)
+    end
+
+    vim.defer_fn(function()
+        vim.cmd("edit")
+    end, 100)
+end, {})
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(event)
