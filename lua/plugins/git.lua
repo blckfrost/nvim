@@ -1,7 +1,15 @@
 return {
-    { "lewis6991/gitsigns.nvim" },
     {
-
+        "lewis6991/gitsigns.nvim",
+        cond = function()
+            local gitdir = vim.fn.finddir(".git", ".;")
+            return gitdir ~= ""
+        end,
+        config = function()
+            require("gitsigns").setup()
+        end,
+    },
+    {
         "sindrets/diffview.nvim",
         dependencies = "nvim-lua/plenary.nvim",
         opts = {

@@ -17,10 +17,11 @@ M.colors = {
     fg_subtle = "#666666",
     fg_dim = "#808080",
 
-    error = "#b87a7a",
-    warning = "#b8a87a",
-    info = "#8a8a8a",
+    error = "#d97c7c",
+    warning = "#d9c97c",
+    info = "#9aa7d9",
     success = "#7ab87a",
+    hint = "#8b9b9b",
 
     border = "#353535",
     selection = "#404040",
@@ -33,11 +34,12 @@ M.colors = {
     blue = "#8abae1",
     yellow = "#ffe6b5",
     sun = "#eff6ab",
-    purple = "#e1bee9",
-    dark_purple = "#db9fe9",
+    purple = "#a798b4",
+    dark_purple = "#73677d",
     teal = "#6484a4",
     cyan = "#9aafe6",
     green = "#7ab27a",
+    lavendar = "#8f7a9b",
 }
 
 function M.setup()
@@ -72,7 +74,7 @@ function M.setup()
         String = { fg = c.green },
         Character = { fg = c.grey_mid },
         Number = { fg = c.grey_mid },
-        Boolean = { fg = c.grey_light },
+        Boolean = { fg = c.lavendar },
         Float = { fg = c.grey_mid },
 
         Identifier = { fg = c.fg },
@@ -137,16 +139,16 @@ function M.setup()
         BlinkCmpGhostText = { fg = c.fg_subtle, italic = true },
 
         -- Diagnostic highlights
-        DiagnosticError = { fg = c.error },
-        DiagnosticWarn = { fg = c.warning },
-        DiagnosticInfo = { fg = c.info },
-        DiagnosticHint = { fg = c.grey_mid },
+        DiagnosticError = { fg = c.error, bg = "#1a1111" },
+        DiagnosticWarn = { fg = c.warning, bg = "#1a1a11" },
+        DiagnosticInfo = { fg = c.info, bg = "#121a1f" },
+        DiagnosticHint = { fg = c.hint, bg = "#101515" },
 
         -- Diagnostic underlines
         DiagnosticUnderlineError = { undercurl = true, sp = c.error },
         DiagnosticUnderlineWarn = { undercurl = true, sp = c.warning },
         DiagnosticUnderlineInfo = { undercurl = true, sp = c.info },
-        DiagnosticUnderlineHint = { undercurl = true, sp = c.grey_mid },
+        DiagnosticUnderlineHint = { undercurl = true, sp = c.hint },
 
         -- Treesitter
         ["@variable"] = { fg = c.fg },
@@ -158,15 +160,15 @@ function M.setup()
         ["@module"] = { fg = c.grey_dark },
 
         ["@string"] = { fg = c.green },
-        ["@string.regex"] = { fg = c.blue },
-        ["@string.escape"] = { fg = c.fg_alt },
-        ["@string.special"] = { fg = c.fg_alt },
+        ["@string.regex"] = { fg = c.cyan },
+        ["@string.escape"] = { fg = c.cyan },
+        ["@string.special"] = { fg = c.cyan },
 
-        ["@boolean"] = { fg = c.fg_alt },
+        ["@boolean"] = { fg = c.lavendar, italic = true },
         ["@number"] = { fg = c.fg_alt },
         ["@float"] = { fg = c.fg_alt },
 
-        ["@function"] = { fg = c.grey_light, bold = true },
+        ["@function"] = { fg = c.purple, bold = true },
         ["@function.builtin"] = { fg = c.grey_light, bold = true },
         ["@function.macro"] = { fg = c.grey_light },
         ["@method"] = { fg = c.dark_purple, bold = true },

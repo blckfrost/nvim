@@ -120,12 +120,6 @@ return {
         })
 
         ins_left({
-            "branch",
-            cond = conditions.check_git_workspace,
-            icon = { "", color = { fg = "#ff0000", gui = "bold" } },
-        })
-
-        ins_left({
             "filename",
             cond = conditions.buffer_not_empty,
             file_status = true,
@@ -163,8 +157,35 @@ return {
         })
 
         ins_right({
-            "lsp_status",
-            -- icon = " LSP:",
+            -- "lsp_status",
+            -- -- icon = " LSP:",
+            function()
+                local bufnr = vim.api.nvim_get_current_buf()
+                local clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+                if next(clients) == nil then
+                    return "no LSP"
+                end
+
+                local excluded_clients = {
+                    ["copilot"] = true,
+                    -- ["null-ls"] = true,
+                }
+
+                local client_names = {}
+                for _, client in pairs(clients) do
+                    if not excluded_clients[client.name] then
+                        table.insert(client_names, client.name)
+                    end
+                end
+                return table.concat(client_names, ", ")
+            end,
+        })
+
+        ins_right({
+            "branch",
+            cond = conditions.check_git_workspace,
+            icon = { "", color = { fg = "#ff0000", gui = "bold" } },
         })
 
         ins_right({ "filetype" })
