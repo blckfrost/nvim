@@ -6,12 +6,12 @@ return {
     ---@type ibl.config
     opts = {
         indent = {
-            char = "▏",
+            -- char = "▏",
+            char = "⋅",
             repeat_linebreak = true,
-            -- tab_char = ">",
         },
         scope = {
-            enabled = true,
+            enabled = false,
             show_start = true,
             show_end = true,
             char = "▏",
