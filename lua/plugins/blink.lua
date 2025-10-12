@@ -19,6 +19,7 @@ return {
         appearance = {
             use_nvim_cmp_as_default = true,
             nerd_font_variant = "normal",
+            kind_icons = require("icons").lspkind,
         },
 
         completion = {
@@ -27,6 +28,7 @@ return {
             },
             list = {
                 selection = { preselect = true, auto_insert = true },
+                max_items = 10,
             },
             documentation = {
                 auto_show = true,

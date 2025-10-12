@@ -5,17 +5,17 @@ vim.g.maplocalleader = " "
 -- performance optimizations
 vim.opt.updatetime = 300
 vim.opt.timeout = true
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 500
 
 -- Line numbers (relative)
 vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Diable mose
-vim.opt.mouse = ""
+vim.o.mouse = ""
 
 -- Clipboard
-vim.opt.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
 
 -- Tab widths, indents and spaces
 vim.opt.tabstop = 4
@@ -53,7 +53,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.cmdheight = 1
 
 -- Persistent undo
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Improve sidescroll
 vim.opt.sidescroll = 1
@@ -103,5 +103,11 @@ vim.opt.wildmode = "longest:full,full"
 vim.opt.wildmenu = true
 
 -- vim.g.python3_host_prog = "/usr/bin/python"
+
+-- Disable health checks for these providers.
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
 
 vim.opt.spelllang = { "en" }

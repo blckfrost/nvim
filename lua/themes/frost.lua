@@ -139,10 +139,10 @@ function M.setup()
         BlinkCmpGhostText = { fg = c.fg_subtle, italic = true },
 
         -- Diagnostic highlights
-        DiagnosticError = { fg = c.error, bg = "#1a1111" },
-        DiagnosticWarn = { fg = c.warning, bg = "#1a1a11" },
-        DiagnosticInfo = { fg = c.info, bg = "#121a1f" },
-        DiagnosticHint = { fg = c.hint, bg = "#101515" },
+        DiagnosticError = { fg = c.error },
+        DiagnosticWarn = { fg = c.warning },
+        DiagnosticInfo = { fg = c.info },
+        DiagnosticHint = { fg = c.hint },
 
         -- Diagnostic underlines
         DiagnosticUnderlineError = { undercurl = true, sp = c.error },
@@ -157,7 +157,7 @@ function M.setup()
         ["@constant"] = { fg = c.grey_dark },
         ["@constant.builtin"] = { fg = c.grey_dark },
 
-        ["@module"] = { fg = c.grey_dark },
+        ["@module"] = { fg = c.lavendar },
 
         ["@string"] = { fg = c.green },
         ["@string.regex"] = { fg = c.cyan },

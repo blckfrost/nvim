@@ -20,7 +20,7 @@ vim.diagnostic.config({
     severity_sort = true,
     float = {
         border = "rounded",
-        source = true,
+        source = "if_many",
     },
     signs = {
         text = {
@@ -61,8 +61,9 @@ end, {})
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(event)
-        local keymap = function(keys, func, desc)
-            vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+        local keymap = function(lhs, rhs, desc, mode)
+            mode = mode or "n"
+            vim.keymap.set(mode, lhs, rhs, { buffer = event.buf, desc = "LSP: " .. desc })
         end
 
         -- DIAGNOSTICS
@@ -96,17 +97,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
         keymap("gd", "<cmd>Telescope lsp_definitions<CR>", "[L]SP [D]efinition")
 
         -- RENAME
-        keymap("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+        keymap("grn", vim.lsp.buf.rename, "[R]ename")
 
         keymap("K", function()
             vim.lsp.buf.hover({ border = "single" })
         end, "Show Documentation for symbol under cursor")
 
-        keymap("<C-s>", vim.lsp.buf.signature_help, "[L]SP Signature Help")
-
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        local methods = vim.lsp.protocol.Methods
-        if client:supports_method(methods.textDocument_inlayHint) then
+        if client and client:supports_method("textDocument/inlayHint") then
             vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
 
             keymap("<leader>ih", function()
@@ -115,6 +113,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
                     { bufnr = event.buf }
                 )
             end, "[I]nlay [H]int")
+        end
+
+        if client and client:supports_method("textDocument/signatureHelp") then
+            keymap("<C-k>", function()
+                if require("blink.cmp.completion.windows.menu").win:is_open() then
+                    require("blink.cmp").hide()
+                end
+                vim.lsp.buf.signature_help()
+            end, "Signature help", "i")
         end
     end,
 })
@@ -137,8 +144,4 @@ capabilities.textDocument.completion.completionItem = {
     documentationFormat = { "markdown", "plaintext" },
 }
 
-capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
-
-vim.lsp.config("*", {
-    capabilities = capabilities,
-})
+vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities(nil, true) })

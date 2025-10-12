@@ -22,14 +22,14 @@ return {
             end,
         }
 
-        local function show_macro_recording()
-            local recording_register = vim.fn.reg_recording()
-            if recording_register == "" then
-                return ""
-            else
-                return "󰑋 @ " .. recording_register
-            end
-        end
+        -- local function show_macro_recording()
+        --     local recording_register = vim.fn.reg_recording()
+        --     if recording_register == "" then
+        --         return ""
+        --     else
+        --         return "󰑋 @ " .. recording_register
+        --     end
+        -- end
 
         local function virtual_env()
             if vim.bo.filetype ~= "python" then
@@ -77,9 +77,9 @@ return {
             },
         }
         local mode_map = {
-            ["NORMAL"] = "N",
+            ["NORMAL"] = "NOR",
             ["O-PENDING"] = "N?",
-            ["INSERT"] = "I",
+            ["INSERT"] = "INS",
             ["VISUAL"] = "V",
             ["V-BLOCK"] = "VB",
             ["V-LINE"] = "VL",
@@ -151,10 +151,10 @@ return {
             symbols = { added = " ", modified = " ", removed = " " },
         })
 
-        ins_right({
-            show_macro_recording,
-            color = { fg = "#f38ba8", gui = "bold" },
-        })
+        -- ins_right({
+        --     show_macro_recording,
+        --     color = { fg = "#f38ba8", gui = "bold" },
+        -- })
 
         ins_right({
             -- "lsp_status",

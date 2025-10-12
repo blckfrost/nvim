@@ -6,7 +6,24 @@ return {
             return gitdir ~= ""
         end,
         config = function()
-            require("gitsigns").setup()
+            require("gitsigns").setup({
+                signs = {
+
+                    add = { text = "│" },
+                    change = { text = "│" },
+                    delete = { text = "_" },
+                    topdelete = { text = "‾" },
+                    changedelete = { text = "~" },
+                    untracked = { text = "┆" },
+                },
+                current_line_blame = true,
+                current_line_blame_opts = {
+                    virt_text = true,
+                    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+                    delay = 1000,
+                    ignore_whitespace = false,
+                },
+            })
         end,
     },
     {
@@ -23,9 +40,9 @@ return {
             enhanced_diff_hl = true,
         },
         keys = {
-            { "<leader>gdo", "<cmd>DiffviewOpen<CR>", { desc = "[G]it [D]iff [O]pen" } },
-            { "<leader>gdc", "<cmd>DiffviewClose<CR>", { desc = "[G]it [D]iff [C]lose" } },
-            { "<leader>gdh", "<cmd>DiffviewFileHistory<CR>", { desc = "[G]it [D]iff [H]istory" } },
+            { "<leader>gdo", "<cmd>DiffviewOpen<CR>", { desc = "[D]iff [O]pen" } },
+            { "<leader>gdc", "<cmd>DiffviewClose<CR>", { desc = "[D]iff [C]lose" } },
+            { "<leader>gdh", "<cmd>DiffviewFileHistory<CR>", { desc = "[D]iff [H]istory" } },
         },
     },
     {

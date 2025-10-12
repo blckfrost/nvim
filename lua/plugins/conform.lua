@@ -2,11 +2,9 @@ return {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     config = function()
-        local keymap = vim.keymap
         require("conform").setup({
             formatters_by_ft = {
                 lua = { "stylua" },
-                -- python = { "isort", "black" },
                 javascript = { "prettier" },
                 javascriptreact = { "prettier" },
                 typescriptreact = { "prettier" },
@@ -19,7 +17,7 @@ return {
                 jsonc = { "prettier" },
                 sh = { "shfmt" },
                 bash = { "shfmt" },
-                -- c = { "clang-format" },
+                c = { "clang-format" },
                 go = { "goimports", "gofmt" },
                 yaml = { "yamlfmt" },
             },
@@ -29,7 +27,7 @@ return {
                 async = false,
                 timeout_ms = 2500,
             },
-            keymap.set({ "n", "v" }, "<leader>mp", function()
+            vim.keymap.set({ "n", "v" }, "<leader>mp", function()
                 require("conform").format({
                     lsp_fallback = true,
                     async = false,
