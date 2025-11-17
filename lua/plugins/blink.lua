@@ -9,8 +9,8 @@ return {
         keymap = {
             preset = "default",
             ["<CR>"] = { "accept", "fallback" },
-            ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
-            ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+            ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
             ["<C-u>"] = { "scroll_documentation_up", "fallback" },
             ["<C-d>"] = { "scroll_documentation_down", "fallback" },
             ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },

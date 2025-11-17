@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd("User", {
 -- spell checking for some filetypes
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     desc = "Enable spellcheck",
-    pattern = { "*.txt", "*.md", "*.tex" },
+    pattern = { "*.txt", "*.md", "*.tex", "*.typ" },
     callback = function()
         vim.opt.spell = true
         vim.opt.spelllang = "en"

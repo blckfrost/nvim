@@ -11,7 +11,7 @@ vim.opt.timeoutlen = 500
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Diable mose
+-- Disable mouse
 vim.o.mouse = ""
 
 -- Clipboard

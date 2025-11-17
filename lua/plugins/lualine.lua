@@ -164,7 +164,7 @@ return {
                 local clients = vim.lsp.get_clients({ bufnr = bufnr })
 
                 if next(clients) == nil then
-                    return "no LSP"
+                    return ""
                 end
 
                 local excluded_clients = {

@@ -27,16 +27,17 @@ return {
                 async = false,
                 timeout_ms = 2500,
             },
-            vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-                require("conform").format({
-                    lsp_fallback = true,
-                    async = false,
-                    timeout_ms = 1000,
-                })
-            end, { desc = "Format file or range(in visual mode)" }),
 
             notify_on_error = false,
         })
+
+        vim.keymap.set({ "n", "v" }, "<leader>lf", function()
+            require("conform").format({
+                lsp_fallback = true,
+                async = false,
+                timeout_ms = 1000,
+            })
+        end, { desc = "Format file or range(in visual mode)" })
         --  special config for prettier
         require("conform.formatters.prettier").args = function(self, ctx)
             local args = { "--stdin-filepath", "$FILENAME" }
@@ -56,30 +57,6 @@ return {
             elseif globalPrettierConfig then
                 vim.list_extend(args, { "--config", globalPrettierConfig })
             end
-
-            local isUsingTailwind = vim.fs.find("tailwind.config.js", {
-                upward = true,
-                path = ctx.dirname,
-                type = "file",
-            })[1]
-            local localTailwindcssPlugin =
-                vim.fs.find("node_modules/prettier-plugin-tailwindcss/dist/index.mjs", {
-                    upward = true,
-                    path = ctx.dirname,
-                    type = "file",
-                })[1]
-
-            if localTailwindcssPlugin then
-                vim.list_extend(args, { "--plugin", localTailwindcssPlugin })
-            else
-                if isUsingTailwind then
-                    vim.notify(
-                        "Tailwind was detected for your project. You can really benefit from automatic class sorting. Please run npm i -D prettier-plugin-tailwindcss",
-                        vim.log.levels.WARN
-                    )
-                end
-            end
-
             return args
         end
     end,

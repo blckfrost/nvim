@@ -1,6 +1,7 @@
 return {
     "mistweaverco/kulala.nvim",
     ft = "http",
+    enabled = false,
     keys = {
         {
             "<leader>Rs",

@@ -9,6 +9,13 @@ return {
             end,
             desc = "Buffer jump mode",
         },
+        {
+            "<leader>J",
+            function()
+                BufferSticks.toggle()
+            end,
+            desc = "Toggle buffer-sticks",
+        },
     },
     config = function()
         local sticks = require("buffer-sticks")

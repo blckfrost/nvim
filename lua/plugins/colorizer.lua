@@ -1,3 +1,43 @@
+-- return {
+--     "NvChad/nvim-colorizer.lua",
+--     event = "BufReadPost",
+--     config = function()
+--         require("colorizer").setup({
+--             user_default_options = {
+--                 RGB = true,
+--                 RRGGBB = true,
+--                 names = true,
+--                 RRGGBBAA = true,
+--                 AARRGGBB = true,
+--                 rgb_fn = true,
+--                 hsl_fn = true,
+--                 css = true,
+--                 css_fn = true,
+--                 -- modes: foreground, background, virtualtext
+--                 mode = "virtualtext",
+--                 tailwind = false,
+--                 -- virtualtext = "■",
+--                 always_update = true,
+--                 virtualtext_inline = "before",
+--             },
+--
+--             filetypes = {
+--                 css = { mode = "background" },
+--                 html = { mode = "background" },
+--                 lua = { mode = "background" },
+--
+--                 javascript = { tailwind = true, mode = "virtualtext" },
+--                 typescript = { tailwind = true, mode = "virtualtext" },
+--                 javascriptreact = { tailwind = true, mode = "virtualtext" },
+--                 typescriptreact = { tailwind = true, mode = "virtualtext", virtualtext = "■" },
+--                 svelte = { tailwind = true, mode = "virtualtext" },
+--                 vue = { tailwind = true, mode = "virtualtext" },
+--                 astro = { tailwind = true, mode = "virtualtext" },
+--                 ["*"] = { mode = "background" },
+--             },
+--         })
+--     end,
+-- }
 return {
     "NvChad/nvim-colorizer.lua",
     event = "BufReadPost",
@@ -15,7 +55,6 @@ return {
                 css_fn = true,
                 -- modes: foreground, background, virtualtext
                 mode = "virtualtext",
-                method = "lsp",
                 tailwind = true,
                 virtualtext = "■",
                 always_update = true,

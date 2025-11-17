@@ -157,7 +157,7 @@ function M.setup()
         ["@constant"] = { fg = c.grey_dark },
         ["@constant.builtin"] = { fg = c.grey_dark },
 
-        ["@module"] = { fg = c.grey_dark },
+        ["@module"] = { fg = c.grey_light },
 
         ["@string"] = { fg = c.green },
         ["@string.regex"] = { fg = c.cyan },

@@ -23,6 +23,11 @@ return {
                     delay = 1000,
                     ignore_whitespace = false,
                 },
+                watch_gitdir = {
+                    interval = 1000,
+                    follow_files = true,
+                },
+                update_debounce = 1000,
             })
         end,
     },
@@ -43,23 +48,6 @@ return {
             { "<leader>gdo", "<cmd>DiffviewOpen<CR>", { desc = "[D]iff [O]pen" } },
             { "<leader>gdc", "<cmd>DiffviewClose<CR>", { desc = "[D]iff [C]lose" } },
             { "<leader>gdh", "<cmd>DiffviewFileHistory<CR>", { desc = "[D]iff [H]istory" } },
-        },
-    },
-    {
-
-        "kdheepak/lazygit.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        keys = {
-            { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
         },
     },
 }

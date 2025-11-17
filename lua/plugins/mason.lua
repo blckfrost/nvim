@@ -8,15 +8,7 @@ return {
             "WhoIsSethDaniel/mason-tool-installer.nvim",
         },
         config = function()
-            require("mason").setup({
-                ui = {
-                    icons = {
-                        package_installed = "✓",
-                        package_pending = "↻",
-                        package_uninstalled = "✗",
-                    },
-                },
-            })
+            require("mason").setup({})
             local mason_lspconfig = require("mason-lspconfig")
             local mason_tool_installer = require("mason-tool-installer")
             mason_lspconfig.setup({
@@ -30,6 +22,11 @@ return {
                     "gopls",
                     "taplo",
                     "copilot",
+                    "cssls",
+                    "templ",
+                    "yamlls",
+                    "dockerls",
+                    "bashls",
                 },
             })
             mason_tool_installer.setup({
@@ -43,4 +40,5 @@ return {
             })
         end,
     },
+    { "zeioth/garbage-day.nvim", event = "VeryLazy", opts = {} },
 }

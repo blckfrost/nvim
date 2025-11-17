@@ -7,10 +7,13 @@ vim.lsp.enable({
     "html",
     "cssls",
     "vtsls",
-    "copilot",
+    -- "sqls",
     "taplo",
     "dockerls",
     "jsonls",
+    "tinymist",
+    "bashls",
+    "templ",
 })
 
 vim.diagnostic.config({
@@ -125,23 +128,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end,
 })
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-capabilities.textDocument.completion.completionItem = {
-    contextSupport = true,
-    snippetSupport = true,
-    deprecatedSupport = true,
-    commitCharactersSupport = true,
-    resolveSupport = {
-        properties = {
-            "documentation",
-            "detail",
-            "additionalTextEdits",
-        },
-    },
-    labelDetailsSupport = true,
-    documentationFormat = { "markdown", "plaintext" },
-}
 
 vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities(nil, true) })
