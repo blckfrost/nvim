@@ -7,7 +7,7 @@ vim.lsp.enable({
     "html",
     "cssls",
     "vtsls",
-    -- "sqls",
+    "astro",
     "taplo",
     "dockerls",
     "jsonls",

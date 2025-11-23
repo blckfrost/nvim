@@ -11,6 +11,7 @@ return {
         "mdx",
         "svelte",
         "vue",
+        "astro",
     },
     root_markers = {
         "package.json",

@@ -40,5 +40,4 @@ return {
             })
         end,
     },
-    { "zeioth/garbage-day.nvim", event = "VeryLazy", opts = {} },
 }
