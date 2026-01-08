@@ -23,6 +23,10 @@ return {
             highlights = {
                 active = { link = "Statement" },
                 inactive = { link = "Whitespace" },
+                active_modified = { link = "Constant" },
+                alternate_modified = { link = "Constant" },
+                inactive_modified = { link = "Constant" },
+                label = { link = "Comment" },
             },
         })
         sticks.show()

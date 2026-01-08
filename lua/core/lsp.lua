@@ -14,6 +14,7 @@ vim.lsp.enable({
     "tinymist",
     "bashls",
     "templ",
+    "rust_analyzer",
 })
 
 vim.diagnostic.config({

@@ -20,6 +20,8 @@ return {
                 c = { "clang-format" },
                 go = { "goimports", "gofmt" },
                 yaml = { "yamlfmt" },
+                astro = { "prettier" },
+                rust = { "rustfmt" },
             },
 
             format_on_save = {

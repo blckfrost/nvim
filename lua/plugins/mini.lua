@@ -1,17 +1,13 @@
 return {
-    {
-        "nvim-mini/mini.pick",
-        config = function()
-            require("mini.pick").setup({})
-            vim.keymap.set("n", "<leader>fp", "<cmd>Pick files<CR>")
-        end,
-    },
-    {
-        "nvim-mini/mini.surround",
-        opts = {
+    "nvim-mini/mini.nvim",
+    config = function()
+        require("mini.surround").setup({
             mappings = {
                 add = "ys",
             },
-        },
-    },
+        })
+
+        require("mini.pick").setup({})
+        vim.keymap.set("n", "<leader>fp", "<cmd>Pick files<CR>")
+    end,
 }

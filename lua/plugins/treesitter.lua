@@ -1,14 +1,16 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
         require("nvim-treesitter.configs").setup({
+            modules = {},
             sync_install = false,
             auto_install = true,
+            ignore_install = {},
             ensure_installed = {
                 "lua",
                 "vim",
@@ -22,6 +24,7 @@ return {
                 "bash",
                 "go",
                 "gomod",
+                "astro",
             },
             textobjects = {
                 select = {
