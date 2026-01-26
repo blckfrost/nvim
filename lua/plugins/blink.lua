@@ -1,6 +1,6 @@
 return {
     "saghen/blink.cmp",
-    version = "*",
+    build = "cargo +nightly build --release",
     dependencies = {
         "L3MON4D3/LuaSnip",
     },
@@ -45,7 +45,7 @@ return {
                     treesitter = { "lsp" },
                     columns = {
                         { "kind_icon" },
-                        { "label", "label_description", gap = 1 },
+                        { "label",      "label_description", gap = 1 },
                         { "kind" },
                         { "source_name" },
                     },

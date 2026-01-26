@@ -64,6 +64,7 @@ vim.api.nvim_create_user_command("LspRestart", function()
 end, {})
 
 vim.api.nvim_create_autocmd("LspAttach", {
+
     callback = function(event)
         local keymap = function(lhs, rhs, desc, mode)
             mode = mode or "n"
@@ -126,6 +127,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 end
                 vim.lsp.buf.signature_help()
             end, "Signature help", "i")
+        end
+
+        if client and client:supports_method("textDocument/documentColor") then
+            vim.lsp.document_color.enable(true, event.buf)
         end
     end,
 })
