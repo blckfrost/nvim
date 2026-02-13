@@ -15,6 +15,7 @@ vim.lsp.enable({
     "bashls",
     "templ",
     "rust_analyzer",
+    "pylsp",
 })
 
 vim.diagnostic.config({
@@ -130,7 +131,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         if client and client:supports_method("textDocument/documentColor") then
-            vim.lsp.document_color.enable(true, event.buf)
+            vim.lsp.document_color.enable(true, event.buf, {
+                style = "virtual",
+            })
         end
     end,
 })

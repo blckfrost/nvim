@@ -27,6 +27,7 @@ return {
                     "yamlls",
                     "dockerls",
                     "bashls",
+                    "astro",
                 },
             })
             mason_tool_installer.setup({

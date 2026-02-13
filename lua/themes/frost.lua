@@ -40,6 +40,9 @@ M.colors = {
     cyan = "#9aafe6",
     green = "#7ab27a",
     lavendar = "#8f7a9b",
+    violet = "#b8a4d9",
+    violet_light = "#d4c5f0",
+    violet_subtle = "#9b88b8",
 }
 
 function M.setup()
@@ -108,33 +111,33 @@ function M.setup()
 
         -- Telescope
         TelescopeSelection = { fg = c.fg, bg = c.bg_highlight },
-        TelescopeSelectionCaret = { fg = c.grey_light },
+        TelescopeSelectionCaret = { fg = c.violet },
         TelescopeNormal = { fg = c.fg, bg = c.bg },
-        TelescopeBorder = { fg = c.border, bg = c.bg },
-        TelescopePromptBorder = { fg = c.border, bg = c.bg },
-        TelescopeResultsBorder = { fg = c.border, bg = c.bg },
+        TelescopeBorder = { fg = c.violet_subtle, bg = c.bg },
+        TelescopePromptBorder = { fg = c.violet_subtle, bg = c.bg },
+        TelescopeResultsBorder = { fg = c.violet_subtle, bg = c.bg },
         TelescopeMultiSelection = { fg = c.grey_dark },
-        TelescopePreviewBorder = { fg = c.border, bg = c.bg },
-        TelescopePromptTitle = { fg = c.fg, bold = true },
-        TelescopeResultsTitle = { fg = c.fg, bold = true },
-        TelescopePreviewTitle = { fg = c.fg, bold = true },
+        TelescopePreviewBorder = { fg = c.violet_subtle, bg = c.bg },
+        TelescopePromptTitle = { fg = c.violet_light, bold = true },
+        TelescopeResultsTitle = { fg = c.violet_light, bold = true },
+        TelescopePreviewTitle = { fg = c.violet_light, bold = true },
 
         -- Cmp
         CmpItemAbbr = { fg = c.fg },
-        CmpItemAbbrMatch = { fg = c.grey_light, bold = true },
-        CmpItemKind = { fg = c.purple },
+        CmpItemAbbrMatch = { fg = c.violet, bold = true },
+        CmpItemKind = { fg = c.violet_light },
         CmpItemMenu = { fg = c.fg_dim },
         CmpItemAbbrDeprecated = { fg = c.fg_dim, strikethrough = true },
-        CmpItemAbbrMatchFuzzy = { fg = c.grey_light, bold = true },
+        CmpItemAbbrMatchFuzzy = { fg = c.violet, bold = true },
 
         -- Blink Cmp
         BlinkCmpMenu = { fg = c.fg, bg = c.bg_alt },
-        BlinkCmpMenuBorder = { fg = c.border, bg = c.bg_alt },
+        BlinkCmpMenuBorder = { fg = c.violet_subtle, bg = c.bg_alt },
         BlinkCmpLabel = { fg = c.fg },
-        BlinkCmpKind = { fg = c.purple },
-        BlinkCmpMenuSelection = { fg = c.bg, bg = c.grey_light },
+        BlinkCmpKind = { fg = c.violet_light },
+        BlinkCmpMenuSelection = { fg = c.bg, bg = c.violet },
         BlinkCmpLabelDeprecated = { fg = c.fg_dim, strikethrough = true },
-        BlinkCmpLabelMatch = { fg = c.grey_light, bold = true },
+        BlinkCmpLabelMatch = { fg = c.violet, bold = true },
         BlinkCmpSource = { fg = c.fg_dim },
         BlinkCmpGhostText = { fg = c.fg_subtle, italic = true },
 
@@ -168,11 +171,11 @@ function M.setup()
         ["@number"] = { fg = c.fg_alt },
         ["@float"] = { fg = c.fg_alt },
 
-        ["@function"] = { fg = c.purple, bold = true },
+        ["@function"] = { fg = c.violet, bold = true },
         ["@function.builtin"] = { fg = c.grey_light, bold = true },
-        ["@function.macro"] = { fg = c.grey_light },
-        ["@method"] = { fg = c.dark_purple, bold = true },
-        ["@method.call"] = { fg = c.dark_purple },
+        ["@function.macro"] = { fg = c.violet_subtle },
+        ["@method"] = { fg = c.violet_subtle, bold = true },
+        ["@method.call"] = { fg = c.violet_subtle },
         ["@constructor"] = { fg = c.fg_alt },
         ["@parameter"] = { fg = c.fg },
 
@@ -197,9 +200,9 @@ function M.setup()
         ["@text.uri"] = { fg = c.cyan, underline = true },
         ["@text.math"] = { fg = c.fg_alt },
 
-        ["@tag"] = { fg = c.purple },
-        ["@tag.attribute"] = { fg = c.teal },
-        ["@tag.delimiter"] = { fg = c.grey_light },
+        ["@tag"] = { fg = c.violet },
+        ["@tag.attribute"] = { fg = c.violet_light },
+        ["@tag.delimiter"] = { fg = c.violet_subtle },
 
         ["@namespace"] = { fg = c.fg },
         ["@symbol"] = { fg = c.fg },
@@ -213,10 +216,10 @@ function M.setup()
         LspReferenceWrite = { bg = c.bg_highlight },
 
         -- Which-key
-        WhichKey = { fg = c.grey_light },
-        WhichKeyGroup = { fg = c.grey_mid, bold = true },
+        WhichKey = { fg = c.violet },
+        WhichKeyGroup = { fg = c.violet_light, bold = true },
         WhichKeyDesc = { fg = c.fg_dim },
-        WhichKeySeparator = { fg = c.fg_subtle },
+        WhichKeySeparator = { fg = c.violet_subtle },
         WhichKeyFloat = { bg = c.bg_alt },
 
         -- Winbar

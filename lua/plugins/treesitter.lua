@@ -3,7 +3,7 @@ return {
     lazy = false,
     build = ":TSUpdate",
     dependencies = {
-        "nvim-treesitter/nvim-treesitter-context"
+        "nvim-treesitter/nvim-treesitter-context",
     },
     config = function()
         local ts = require("nvim-treesitter")
@@ -45,6 +45,13 @@ return {
             "typst",
             "yaml",
         })
-    end,
 
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = ts.get_installed(),
+            callback = function()
+                -- syntax highlighting, provided by Neovim
+                vim.treesitter.start()
+            end,
+        })
+    end,
 }
