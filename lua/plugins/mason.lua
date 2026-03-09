@@ -28,6 +28,9 @@ return {
                     "dockerls",
                     "bashls",
                     "astro",
+                    "svelte",
+                    "marksman",
+                    "tinymist",
                 },
             })
             mason_tool_installer.setup({

@@ -111,3 +111,15 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
 
 vim.opt.spelllang = { "en" }
+
+-- NEOVIDE
+if vim.g.neovide then
+    vim.opt.linespace = -2
+    vim.g.neovide_padding_top = 8
+    vim.g.neovide_padding_bottom = 8
+    vim.g.neovide_padding_right = 8
+    vim.g.neovide_padding_left = 8
+    vim.g.neovide_opacity = 0.9
+    vim.o.guifont = "FiraCode Nerd Font Mono"
+    vim.g.neovide_scale_factor = 0.7
+end

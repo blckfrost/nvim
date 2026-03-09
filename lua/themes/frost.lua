@@ -39,6 +39,7 @@ M.colors = {
     teal = "#6484a4",
     cyan = "#9aafe6",
     green = "#7ab27a",
+    green_light = "#689e6e", -- e8755
     lavendar = "#8f7a9b",
     violet = "#b8a4d9",
     violet_light = "#d4c5f0",

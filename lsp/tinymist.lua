@@ -11,6 +11,7 @@ local function create_tinymist_command(command_name, client, bufnr)
     return run_tinymist_command, ("Export" .. cmd_display), ("Export to " .. cmd_display)
 end
 
+---@type vim.lsp.Config
 return {
     cmd = { "tinymist" },
     filetypes = { "typst" },

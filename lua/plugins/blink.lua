@@ -9,11 +9,17 @@ return {
         keymap = {
             preset = "default",
             ["<CR>"] = { "accept", "fallback" },
-            ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-            ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+
+            ["<Tab>"] = { "select_next", "fallback" },
+            ["<S-Tab>"] = { "select_prev" },
+
             ["<C-u>"] = { "scroll_documentation_up", "fallback" },
             ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+
             ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+
+            ["<C-f>"] = { "snippet_forward", "fallback" },
+            ["<C-b>"] = { "snippet_backward", "fallback" },
         },
 
         appearance = {
@@ -45,7 +51,7 @@ return {
                     treesitter = { "lsp" },
                     columns = {
                         { "kind_icon" },
-                        { "label",      "label_description", gap = 1 },
+                        { "label", "label_description", gap = 1 },
                         { "kind" },
                         { "source_name" },
                     },
@@ -76,7 +82,7 @@ return {
             },
         },
 
-        fuzzy = { implementation = "prefer_rust_with_warning" },
+        fuzzy = { implementation = "rust" },
     },
     opts_extend = { "sources.default" },
 }

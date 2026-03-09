@@ -16,6 +16,7 @@ vim.lsp.enable({
     "templ",
     "rust_analyzer",
     "pylsp",
+    "svelte",
 })
 
 vim.diagnostic.config({
@@ -73,7 +74,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         -- DIAGNOSTICS
-        keymap("<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer dianostics")
+        keymap("<leader>D", "<cmd>Pick diagnostic bufnr=0<CR>", "Show buffer dianostics")
 
         keymap("]d", function()
             vim.diagnostic.jump({ count = 1, float = true })

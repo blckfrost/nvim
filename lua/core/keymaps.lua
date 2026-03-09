@@ -1,12 +1,6 @@
 local keymap = vim.keymap.set
 local opts = { silent = true }
 
--- Disable the arrow keys
--- keymap.set("n", "<Left>", ":echo 'use h'<CR>")
--- keymap.set("n", "<Right>", ":echo 'use l'<CR>")
--- keymap.set("n", "<Up>", ":echo 'use k'<CR>")
--- keymap.set("n", "<Down>", ":echo 'use j'<CR>")
-
 -- Exit and quit
 keymap("n", "<leader>ws", "<cmd>w<CR>", { desc = "Save current File" })
 keymap("n", "<C-q>", "<cmd>q<CR>", { desc = "[Q]uit" })
@@ -17,10 +11,10 @@ keymap("n", "sv", ":vsplit<Return><C-w>w", { desc = "[S]plit [V]ertical", silent
 keymap("n", "sh", ":split<Return>", { desc = "[S]plit [H]orizontal", silent = true })
 
 -- Move to window
-keymap("n", "<C-h>", "<C-w>h", { desc = "Move window left" })
-keymap("n", "<C-k>", "<C-w>k", { desc = "Move window up" })
-keymap("n", "<C-j>", "<C-w>j", { desc = "Move window down" })
-keymap("n", "<C-l>", "<C-w>l", { desc = "Move window right" })
+keymap("n", "<C-h>", "<C-w>h", { desc = "Move to window left" })
+keymap("n", "<C-k>", "<C-w>k", { desc = "Move to window up" })
+keymap("n", "<C-j>", "<C-w>j", { desc = "Move to window down" })
+keymap("n", "<C-l>", "<C-w>l", { desc = "Move to window right" })
 
 --  Resizing windows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)

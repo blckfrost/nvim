@@ -2,6 +2,7 @@ return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
     cmd = "Telescope",
+    enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope-ui-select.nvim",
@@ -23,7 +24,6 @@ return {
         { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Show Keymaps" },
         { "<leader>gf", "<cmd>Telescope git_files<cr>", desc = "Show git files" },
         { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Show git status" },
-        { "<leader>fcs", "<cmd>Telescope colorscheme<cr>", desc = "Show available colorschemes" },
         { "<leader>fs", "<cmd>Telescope spell_suggest<cr>", desc = "Show Spelling Suggestion" },
     },
 

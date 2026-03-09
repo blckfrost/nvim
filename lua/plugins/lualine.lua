@@ -120,10 +120,17 @@ return {
         })
 
         ins_left({
+            "filetype",
+            icon_only = true,
+            padding = { left = 1, right = 0 },
+        })
+
+        ins_left({
             "filename",
             cond = conditions.buffer_not_empty,
             file_status = true,
             newfile_status = true,
+            padding = { left = 0, right = 1 },
         })
 
         ins_left({ "progress" })
@@ -187,8 +194,6 @@ return {
             cond = conditions.check_git_workspace,
             icon = { "", color = { fg = "#ff0000", gui = "bold" } },
         })
-
-        ins_right({ "filetype" })
 
         ins_right({
             function()

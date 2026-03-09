@@ -1,6 +1,6 @@
 return {
     "ray-x/go.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = { -- optional packages
         "ray-x/guihua.lua",
         "nvim-treesitter/nvim-treesitter",
