@@ -1,59 +1,59 @@
 local M = {}
 
 M.colors = {
-    white = "#d8dee9",
-    grey_light = "#677777",
-    grey_mid = "#606060",
-    grey_dark = "#4c4c4c",
-    grey_darker = "#424242",
+    white = '#d9d0c1',
+    grey_light = '#8a7a68',
+    grey_mid = '#786a5a',
+    grey_dark = '#5c5045',
+    grey_darker = '#4a4038',
 
-    bg = "#101010",
-    bg_alt = "#202020",
-    bg_highlight = "#2a2a2a",
-    bg_subtle = "#303030",
+    bg = '#101010',
+    bg_alt = '#201d1a',
+    bg_highlight = '#2a2621',
+    bg_subtle = '#302b26',
 
-    fg = "#d9d9d9",
-    fg_alt = "#808080",
-    fg_subtle = "#666666",
-    fg_dim = "#808080",
+    fg = '#d6cdc0',
+    fg_alt = '#8f8272',
+    fg_subtle = '#6e6357',
+    fg_dim = '#8f8272',
 
-    error = "#d97c7c",
-    warning = "#d9c97c",
-    info = "#9aa7d9",
-    success = "#7ab87a",
-    hint = "#8b9b9b",
+    error = '#c17a5e',
+    warning = '#c4a25e',
+    info = '#8a9c8e',
+    success = '#8ca873',
+    hint = '#9b968b',
 
-    border = "#353535",
-    selection = "#404040",
-    cursor_line = "#252525",
-    line_nr = "#585858",
-    line_nr_active = "#a0a0a0",
+    border = '#3a352f',
+    selection = '#40382f',
+    cursor_line = '#221f1b',
+    line_nr = '#5c5245',
+    line_nr_active = '#a89a86',
 
-    line = "#2e2e2e",
-    black = "#101010",
-    blue = "#8abae1",
-    yellow = "#ffe6b5",
-    sun = "#eff6ab",
-    purple = "#a798b4",
-    dark_purple = "#73677d",
-    teal = "#6484a4",
-    cyan = "#9aafe6",
-    green = "#7ab27a",
-    green_light = "#689e6e", -- e8755
-    lavendar = "#8f7a9b",
-    violet = "#b8a4d9",
-    violet_light = "#d4c5f0",
-    violet_subtle = "#9b88b8",
+    line = '#2e2a25',
+    black = '#101010',
+    blue = '#9aa88c',
+    yellow = '#d9b97c',
+    sun = '#e8d9a8',
+    purple = '#a48f7a',
+    dark_purple = '#7d6a5b',
+    teal = '#8f9a7a',
+    cyan = '#a8ab8a',
+    green = '#8a9e6e',
+    green_light = '#7d9161', -- e8755
+    lavendar = '#9b8a72',
+    violet = '#b09468',
+    violet_light = '#d4bd93',
+    violet_subtle = '#a08a6d',
 }
 
 function M.setup()
-    vim.cmd("hi clear")
-    if vim.fn.exists("syntax_on") then
-        vim.cmd("syntax reset")
+    vim.cmd('hi clear')
+    if vim.fn.exists('syntax_on') then
+        vim.cmd('syntax reset')
     end
 
-    vim.o.background = "dark"
-    vim.g.colors_name = "frost"
+    vim.o.background = 'dark'
+    vim.g.colors_name = 'frost'
 
     local c = M.colors
 
@@ -92,13 +92,13 @@ function M.setup()
         LineNr = { fg = c.line_nr },
         SignColumn = { fg = c.line_nr, bg = c.bg },
 
-        Statement = { fg = c.grey_light, bold = true },
-        Conditional = { fg = c.grey_light, bold = true },
-        Repeat = { fg = c.grey_light, bold = true },
+        Statement = { fg = c.grey_light },
+        Conditional = { fg = c.grey_light },
+        Repeat = { fg = c.grey_light },
         Label = { fg = c.grey_light },
         Operator = { fg = c.fg_dim },
-        Keyword = { fg = c.grey_light, bold = true },
-        Exception = { fg = c.grey_light, bold = true },
+        Keyword = { fg = c.grey_light },
+        Exception = { fg = c.grey_light },
 
         -- StatusLine
         StatusLine = { fg = c.fg, bg = c.bg_subtle },
@@ -119,9 +119,9 @@ function M.setup()
         TelescopeResultsBorder = { fg = c.violet_subtle, bg = c.bg },
         TelescopeMultiSelection = { fg = c.grey_dark },
         TelescopePreviewBorder = { fg = c.violet_subtle, bg = c.bg },
-        TelescopePromptTitle = { fg = c.violet_light, bold = true },
-        TelescopeResultsTitle = { fg = c.violet_light, bold = true },
-        TelescopePreviewTitle = { fg = c.violet_light, bold = true },
+        TelescopePromptTitle = { fg = c.violet_light },
+        TelescopeResultsTitle = { fg = c.violet_light },
+        TelescopePreviewTitle = { fg = c.violet_light },
 
         -- Cmp
         CmpItemAbbr = { fg = c.fg },
@@ -155,61 +155,61 @@ function M.setup()
         DiagnosticUnderlineHint = { undercurl = true, sp = c.hint },
 
         -- Treesitter
-        ["@variable"] = { fg = c.fg },
-        ["@variable.builtin"] = { fg = c.grey_light },
+        ['@variable'] = { fg = c.fg },
+        ['@variable.builtin'] = { fg = c.grey_light },
 
-        ["@constant"] = { fg = c.grey_dark },
-        ["@constant.builtin"] = { fg = c.grey_dark },
+        ['@constant'] = { fg = c.grey_dark },
+        ['@constant.builtin'] = { fg = c.grey_dark },
 
-        ["@module"] = { fg = c.grey_light },
+        ['@module'] = { fg = c.grey_light },
 
-        ["@string"] = { fg = c.green },
-        ["@string.regex"] = { fg = c.cyan },
-        ["@string.escape"] = { fg = c.cyan },
-        ["@string.special"] = { fg = c.cyan },
+        ['@string'] = { fg = c.green },
+        ['@string.regex'] = { fg = c.cyan },
+        ['@string.escape'] = { fg = c.cyan },
+        ['@string.special'] = { fg = c.cyan },
 
-        ["@boolean"] = { fg = c.lavendar, italic = true },
-        ["@number"] = { fg = c.fg_alt },
-        ["@float"] = { fg = c.fg_alt },
+        ['@boolean'] = { fg = c.lavendar, italic = true },
+        ['@number'] = { fg = c.fg_alt },
+        ['@float'] = { fg = c.fg_alt },
 
-        ["@function"] = { fg = c.violet, bold = true },
-        ["@function.builtin"] = { fg = c.grey_light, bold = true },
-        ["@function.macro"] = { fg = c.violet_subtle },
-        ["@method"] = { fg = c.violet_subtle, bold = true },
-        ["@method.call"] = { fg = c.violet_subtle },
-        ["@constructor"] = { fg = c.fg_alt },
-        ["@parameter"] = { fg = c.fg },
+        ['@function'] = { fg = c.violet, bold = false },
+        ['@function.builtin'] = { fg = c.grey_light, bold = false },
+        ['@function.macro'] = { fg = c.violet_subtle },
+        ['@method'] = { fg = c.violet_subtle, bold = false },
+        ['@method.call'] = { fg = c.violet_subtle },
+        ['@constructor'] = { fg = c.fg_alt },
+        ['@parameter'] = { fg = c.fg },
 
-        ["@comment"] = { fg = c.fg_subtle, italic = true },
-        ["@comment.documentation"] = { fg = c.fg_subtle, italic = true },
+        ['@comment'] = { fg = c.fg_subtle, italic = true },
+        ['@comment.documentation'] = { fg = c.fg_subtle, italic = true },
 
-        ["@type"] = { fg = c.blue },
-        ["@type.builtin"] = { fg = c.blue },
-        ["@type.definition"] = { fg = c.blue },
-        ["@type.qualifier"] = { fg = c.grey_light },
+        ['@type'] = { fg = c.blue },
+        ['@type.builtin'] = { fg = c.blue },
+        ['@type.definition'] = { fg = c.blue },
+        ['@type.qualifier'] = { fg = c.grey_light },
 
-        ["@attribute"] = { fg = c.teal },
-        ["@field"] = { fg = c.teal },
+        ['@attribute'] = { fg = c.teal },
+        ['@field'] = { fg = c.teal },
 
-        ["@text.strong"] = { bold = true },
-        ["@text.emphasis"] = { italic = true },
-        ["@text.underline"] = { underline = true },
-        ["@text.strike"] = { strikethrough = true },
-        ["@text.quote"] = { fg = c.grey_mid, italic = true },
-        ["@text.title"] = { fg = c.fg, bold = true },
-        ["@text.literal"] = { fg = c.green },
-        ["@text.uri"] = { fg = c.cyan, underline = true },
-        ["@text.math"] = { fg = c.fg_alt },
+        ['@text.strong'] = { bold = true },
+        ['@text.emphasis'] = { italic = true },
+        ['@text.underline'] = { underline = true },
+        ['@text.strike'] = { strikethrough = true },
+        ['@text.quote'] = { fg = c.grey_mid, italic = true },
+        ['@text.title'] = { fg = c.fg, bold = true },
+        ['@text.literal'] = { fg = c.green },
+        ['@text.uri'] = { fg = c.cyan, underline = true },
+        ['@text.math'] = { fg = c.fg_alt },
 
-        ["@tag"] = { fg = c.violet },
-        ["@tag.attribute"] = { fg = c.violet_light },
-        ["@tag.delimiter"] = { fg = c.violet_subtle },
+        ['@tag'] = { fg = c.violet },
+        ['@tag.attribute'] = { fg = c.violet_light },
+        ['@tag.delimiter'] = { fg = c.violet_subtle },
 
-        ["@namespace"] = { fg = c.fg },
-        ["@symbol"] = { fg = c.fg },
+        ['@namespace'] = { fg = c.fg },
+        ['@symbol'] = { fg = c.fg },
 
-        ["@punctuation.delimiter"] = { fg = c.fg_dim },
-        ["@punctuation.bracket"] = { fg = c.fg_dim },
+        ['@punctuation.delimiter'] = { fg = c.fg_dim },
+        ['@punctuation.bracket'] = { fg = c.fg_dim },
 
         -- LSP highlights
         LspReferenceText = { bg = c.bg_highlight },

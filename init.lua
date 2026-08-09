@@ -1,6 +1,8 @@
-require("core.options")
-require("core.autocmds")
-require("core.lazy")
-require("core.keymaps")
-require("core.lsp")
-vim.cmd.colorscheme("frost")
+vim.cmd.colorscheme('frost')
+
+require('options')
+require('keymaps')
+require('autocmds')
+require('lsp')
+
+vim.cmd.packadd('nvim.undotree')
