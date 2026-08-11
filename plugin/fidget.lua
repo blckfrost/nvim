@@ -27,6 +27,7 @@ add_on_event('LspAttach', {
             },
 
             notification = {
+                override_vim_notify = true,
                 window = {
                     relative = 'editor', -- where to anchor, either "win" or "editor"
                     winblend = 0, -- winblend for the window
