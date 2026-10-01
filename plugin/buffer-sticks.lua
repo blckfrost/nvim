@@ -3,9 +3,8 @@ local add_on_event = require("vim-pack").add_on_event
 add_on_event("BufReadPre", {
 	{
 		src = "ahkohd/buffer-sticks.nvim",
-		config = function()
+		on_setup = function()
 			local sticks = require("buffer-sticks")
-
 			sticks.setup({
 				highlights = {
 					active = { link = "Statement" },
@@ -22,9 +21,8 @@ add_on_event("BufReadPre", {
 })
 
 vim.keymap.set({ "n", "v" }, "<leader>jj", function()
-	BufferSticks.jump()
+	require("buffer-sticks").jump()
 end, { desc = "Jump to buffer" })
-
 vim.keymap.set({ "n", "v" }, "<leader>jq", function()
-	BufferSticks.close()
+	require("buffer-sticks").close()
 end, { desc = "Close buffer" })

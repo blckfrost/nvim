@@ -52,4 +52,6 @@ vim.keymap.set("n", "<leader>u", function()
 	})
 end, { desc = "[U]ndotree toggle" })
 
-keymap("n", "<leader>pu", "<cmd>packupdate<cr>", { desc = "Update packages" })
+keymap("n", "<leader>pu", function()
+	vim.pack.update()
+end, { desc = "Update packages" })

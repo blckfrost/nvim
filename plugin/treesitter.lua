@@ -35,6 +35,7 @@ local function install_list()
 		"vimdoc",
 		"yaml",
 		"svelte",
+		"typst",
 	}
 
 	local set = {}
@@ -93,6 +94,10 @@ add({
 				end
 			end, { desc = "Jump to upper context", expr = true })
 		end,
+	},
+	{
+		src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+		version = "main",
 	},
 })
 

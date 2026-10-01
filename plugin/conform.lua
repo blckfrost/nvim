@@ -1,6 +1,6 @@
 local add_on_event = require("vim-pack").add_on_event
 
-add_on_event("InsertEnter", {
+add_on_event({ "BufReadPre", "BufNewFile" }, {
 	{
 		src = "stevearc/conform.nvim",
 		opts = {
@@ -48,10 +48,11 @@ add_on_event("InsertEnter", {
 				svelte = { "prettier" },
 				yaml = { "yamlfmt" },
 				rust = { name = "rust_analyzer", timeout_ms = 500, lsp_format = "prefer" },
+				typst = { "typstyle" },
 				["_"] = { "trim_whitespace", "trim_newlines" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_format = "fallback",
 				async = false,
 				timeout_ms = 2500,
 			},

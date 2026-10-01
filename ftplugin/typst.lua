@@ -11,7 +11,7 @@ local function compile()
 		vim.notify(res.stderr, vim.log.levels.ERROR)
 		return false
 	end
-	vim.notify("Compiled" .. vim.fn.fnamemodify(pdf_path(), ":t"))
+	vim.notify("Compiled " .. vim.fn.fnamemodify(pdf_path(), ":t"))
 	return true
 end
 
@@ -35,8 +35,10 @@ local function watch()
 	local src = vim.api.nvim_buf_get_name(0)
 	watch_job = vim.fn.jobstart({ "typst", "watch", src, pdf_path() }, {
 		on_stderr = function(_, data)
-			if data and data[1] ~= "" then
-				vim.notify(table.concat(data, "\n"))
+			-- shows errors on compile
+			local msg = table.concat(data or {}, "\n")
+			if msg:match("error") then
+				vim.notify(msg, vim.log.levels.ERROR)
 			end
 		end,
 	})
@@ -55,3 +57,7 @@ vim.api.nvim_buf_create_user_command(0, "TypstWatch", watch, {})
 map("<leader>tc", compile, "Typst compile")
 map("<leader>to", open, "Typst compile + open in pdf viewer")
 map("<leader>tw", watch, "Typst watch")
+
+vim.opt_local.spell = true
+vim.opt_local.wrap = true
+vim.opt_local.linebreak = true
