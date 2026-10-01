@@ -4,11 +4,12 @@ add_on_event("UIEnter", {
 	{
 		src = "nvim-lualine/lualine.nvim",
 		on_setup = function()
+			local c = require("themes.frost").colors
 			vim.cmd(":hi statusline guibg=NONE")
 
 			local colors = {
 				bg = "NONE",
-				fg = "#DCD7BA",
+				fg = c.fg,
 			}
 
 			local conditions = {
@@ -110,7 +111,7 @@ add_on_event("UIEnter", {
 				function()
 					return "▊"
 				end,
-				color = { fg = "#000000" },
+				color = { fg = c.green },
 				padding = { left = 0, right = 1 },
 			})
 
@@ -202,7 +203,7 @@ add_on_event("UIEnter", {
 				function()
 					return "▊"
 				end,
-				color = { fg = "#000000" },
+				color = { fg = c.green },
 				padding = { left = 1 },
 			})
 
