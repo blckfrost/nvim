@@ -43,10 +43,32 @@ add_on_event("UIEnter", {
 				local venv_path = os.getenv("VIRTUAL_ENV")
 				if venv_path then
 					local venv_name = vim.fn.fnamemodify(venv_path, ":t")
-					return string.format(" %s", venv_name)
+					return string.format(" %s", venv_name)
 				else
 					return "[no-venv]"
 				end
+			end
+
+			local function set_diff_highlights()
+				vim.api.nvim_set_hl(0, "LualineDiffBracket", { fg = c.fg })
+				vim.api.nvim_set_hl(0, "LualineDiffAdd", { fg = c.green })
+				vim.api.nvim_set_hl(0, "LualineDiffChange", { fg = c.warning })
+				vim.api.nvim_set_hl(0, "LualineDiffDelete", { fg = c.error })
+			end
+
+			set_diff_highlights()
+			local function diff_source()
+				local d = vim.b.gitsigns_status_dict
+				local added, changed, removed = 0, 0, 0
+				if d then
+					added, changed, removed = d.added or 0, d.changed or 0, d.removed or 0
+				end
+				return string.format(
+					"%%#LualineDiffBracket#[%%#LualineDiffAdd# %d %%#LualineDiffChange# %d %%#LualineDiffDelete# %d%%#LualineDiffBracket#]%%*",
+					added,
+					changed,
+					removed
+				)
 			end
 
 			local config = {
@@ -144,10 +166,10 @@ add_on_event("UIEnter", {
 				"diagnostics",
 				update_in_insert = true,
 				symbols = {
-					error = " ",
-					warn = " ",
-					info = " ",
-					hint = " ",
+					error = " ",
+					warn = " ",
+					info = " ",
+					hint = " ",
 				},
 			})
 
@@ -158,8 +180,7 @@ add_on_event("UIEnter", {
 			})
 
 			ins_right({
-				"diff",
-				symbols = { added = " ", modified = " ", removed = " " },
+				diff_source,
 			})
 
 			-- ins_right({
@@ -169,7 +190,7 @@ add_on_event("UIEnter", {
 
 			ins_right({
 				-- "lsp_status",
-				-- -- icon = " LSP:",
+				-- -- icon = " LSP:",
 				function()
 					local bufnr = vim.api.nvim_get_current_buf()
 					local clients = vim.lsp.get_clients({ bufnr = bufnr })

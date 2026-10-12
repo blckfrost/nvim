@@ -55,3 +55,23 @@ end, { desc = "[U]ndotree toggle" })
 keymap("n", "<leader>pu", function()
 	vim.pack.update()
 end, { desc = "Update packages" })
+
+-- tiny feature for auto checkboxes markdown
+keymap("n", "<leader>x", function()
+	local line = vim.api.nvim_get_current_line()
+
+	-- Unchecked -> checked + strikethrough
+	local indent, text = line:match("^(%s*%- )%[ %] (.*)$")
+	if indent then
+		line = indent .. "[x] ~~" .. text .. "~~"
+	else
+		-- Checked -> unchecked, remove strikethrough
+		local indent2, text2 = line:match("^(%s*%- )%[x%] (.*)$")
+		if indent2 then
+			text2 = text2:gsub("^~~(.-)~~$", "%1")
+			line = indent2 .. "[ ] " .. text2
+		end
+	end
+
+	vim.api.nvim_set_current_line(line)
+end, { desc = "Toggle checkbox and strikethrough" })
