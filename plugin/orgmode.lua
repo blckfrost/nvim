@@ -1,0 +1,13 @@
+-- local add = require("vim-pack").add
+--
+-- add({
+-- 	{
+-- 		src = "nvim-orgmode/orgmode",
+-- 		on_setup = function()
+-- 			require("orgmode").setup({
+-- 				org_agenda_files = "~/org/**/*",
+-- 				org_default_notes_file = "~/org/refile.org",
+-- 			})
+-- 		end,
+-- 	},
+-- })

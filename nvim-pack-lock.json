@@ -72,6 +72,10 @@
       "rev": "58447c1fca354bbf184425e4a8d01deecbd6f3c4",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "orgmode": {
+      "rev": "150993e56c2e5b983e13c397e9bde6b01e07c23a",
+      "src": "https://github.com/nvim-orgmode/orgmode"
+    },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
