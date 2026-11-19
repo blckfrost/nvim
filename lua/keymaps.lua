@@ -34,7 +34,7 @@ keymap("n", "<leader>rn", function()
 end, { desc = "Toggle Relative number" })
 
 -- Run current line as shell command
-keymap("n", "Q", "!!zsh<CR>")
+keymap("n", "!", "!!zsh<CR>")
 
 -- Move lines up and down
 keymap("n", "<A-j>", ":move .+1<CR>==")

@@ -67,7 +67,18 @@ add({
 				vim.opt.runtimepath:prepend(vim.fn.fnamemodify(init, ":h:h:h") .. "/runtime")
 			end
 
-			require("nvim-treesitter").install(install_list()):wait(300000)
+			-- Only install what is missing, and don't block startup waiting for it.
+			local ts = require("nvim-treesitter")
+			local have = {}
+			for _, name in ipairs(ts.get_installed()) do
+				have[name] = true
+			end
+			local missing = vim.tbl_filter(function(name)
+				return not have[name]
+			end, install_list())
+			if #missing > 0 then
+				ts.install(missing)
+			end
 		end,
 	},
 	{

@@ -20,7 +20,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		-- DIAGNOSTICS
-		keymap("<leader>D", "<cmd>Pick diagnostic bufnr=0<CR>", "Show buffer dianostics")
+		keymap("<leader>D", function()
+			require("fzf-lua").dianostics.document()
+		end, "Show buffer dianostics")
 
 		keymap("]d", function()
 			vim.diagnostic.jump({ count = 1, float = true })

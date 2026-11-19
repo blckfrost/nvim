@@ -10,10 +10,9 @@ add({
 				mappings = {
 					add = "ys",
 					delete = "ds",
+					replace = "cs",
 				},
 			})
-
-			require("mini.pick").setup({})
 
 			local ai = require("mini.ai")
 			ai.setup({
@@ -29,12 +28,6 @@ add({
 					}),
 				},
 			})
-
-			require("mini.extra").setup()
-
-			vim.keymap.set("n", "<leader>fp", "<cmd>Pick files<CR>", { desc = "Browse files" })
-
-			vim.keymap.set("n", "<leader>fcs", "<cmd>Pick colorschemes<CR>", { desc = "Browse colorschemes" })
 		end,
 	},
 })

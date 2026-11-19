@@ -91,10 +91,6 @@ vim.opt.fillchars = {
 	diff = "╱",
 }
 
--- encoding
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
-
 -- turn of swapfile
 vim.opt.swapfile = false
 

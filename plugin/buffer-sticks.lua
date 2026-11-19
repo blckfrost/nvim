@@ -3,6 +3,7 @@ local add_on_event = require("vim-pack").add_on_event
 add_on_event("BufReadPre", {
 	{
 		src = "ahkohd/buffer-sticks.nvim",
+		setup = false,
 		on_setup = function()
 			local sticks = require("buffer-sticks")
 			sticks.setup({

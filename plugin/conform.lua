@@ -1,52 +1,30 @@
 local add_on_event = require("vim-pack").add_on_event
 
+local prettier = { "prettier", timeout_ms = 500, lsp_format = "fallback" }
+
 add_on_event({ "BufReadPre", "BufNewFile" }, {
 	{
 		src = "stevearc/conform.nvim",
 		opts = {
 			formatters_by_ft = {
-				c = { name = "clangd", timeout_ms = 500, lsp_format = "prefer" },
-				go = { name = "gopls", timeout_ms = 500, lsp_format = "prefer" },
+				c = { name = "clangd", timeout_ms = 500 },
+				go = { name = "gopls", timeout_ms = 500 },
+				rust = { name = "rust_analyzer", timeout_ms = 500 },
 				java = { "palantir-java-format" },
-				javascript = {
-					"prettier",
-					name = "dprint",
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				},
-				javascriptreact = {
-					"prettier",
-					name = "dprint",
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				},
-				json = { "prettier", timeout_ms = 500, lsp_format = "fallback" },
-				jsonc = { "prettier", timeout_ms = 500, lsp_format = "fallback" },
+				javascript = prettier,
+				typescript = prettier,
+				javascriptreact = prettier,
+				typescriptreact = prettier,
+				json = prettier,
+				jsonc = prettier,
 				less = { "prettier" },
 				lua = { "stylua" },
-				markdown = {
-					"prettier",
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				},
+				markdown = prettier,
 				python = { "ruff_format" },
 				scss = { "prettier" },
 				sh = { "shfmt" },
-				typescript = {
-					"prettier",
-					name = "dprint",
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				},
-				typescriptreact = {
-					"prettier",
-					name = "dprint",
-					timeout_ms = 500,
-					lsp_format = "fallback",
-				},
 				svelte = { "prettier" },
 				yaml = { "yamlfmt" },
-				rust = { name = "rust_analyzer", timeout_ms = 500, lsp_format = "prefer" },
 				typst = { "typstyle" },
 				["_"] = { "trim_whitespace", "trim_newlines" },
 			},
